@@ -20,8 +20,9 @@ const Match = ({ club1, club2 }: IMatch) => {
                 <View>{club1.logo}</View>
             </View>
             <View style={{ justifyContent: 'center', }}>
-                <Text style={{ fontWeight: '300' }}>13 March 2023</Text>
-                <Text style={{ textAlign: 'center', fontWeight: '300' }}>15:00</Text>
+                 <View><Text style={{ fontWeight: '300' }}>13 March 2023</Text>
+                <Text style={{ textAlign: 'center', fontWeight: '300' }}>15:00</Text></View>
+               
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Text style={{ fontSize: 17, fontWeight: '600' }}>{club2.name} </Text>
