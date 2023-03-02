@@ -9,9 +9,14 @@ const window = Dimensions.get('window');
 // StatusBar.setBarStyle('light-content',true)
 const { height: windowHeight } = window;
 const FinalScore = () => {
-  const route = useRoute()
-  let homeTeam = route.params.club1
-  let awayTeam = route.params.club2
+  interface IParams {
+    club1: any;
+    club2: any;
+  }
+  const route = useRoute();
+  const { club1, club2 } = route.params as IParams;
+  let homeTeam = club1;
+  let awayTeam = club2;
   return (
     <SafeAreaView style={{ height: '100%', backgroundColor: 'white' }}>
       <View style={{ padding: 20, backgroundColor: 'white', height: windowHeight }}>
@@ -37,12 +42,12 @@ const ScoreCard = ({ homeTeam, awayTeam }) => {
       </View>
       <View style={{ flexDirection: 'row', justifyContent: "space-between", marginTop: 8, width: "90%", alignSelf: "center" }}>
         <View>
-          <Text style={styles.scorer}>Yinka </Text>
-          <Text style={styles.scorer}>Lekan </Text>
+          <Text style={styles.scorer}>Yinka 16"</Text>
+          <Text style={styles.scorer}>Lekan 45"</Text>
         </View>
         <View>
-          <Text style={styles.scorer}>Gbadebo</Text>
-          <Text style={styles.scorer}>Eekial</Text>
+          <Text style={styles.scorer}>Gbadebo 78"</Text>
+          <Text style={styles.scorer}>Eekial 80"</Text>
         </View>
       </View>
     </View>
