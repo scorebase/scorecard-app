@@ -22,7 +22,7 @@ const FinalScore = () => {
     <SafeAreaView style={{ height: '100%', backgroundColor: 'white' }}>
       <View style={{ padding: 20, backgroundColor: 'white', height: windowHeight }}>
         <View style={{}}>
-          <ScreenNavigationHeader backTo='Home' middleComponent={'FinalScore'} />
+          <ScreenNavigationHeader backTo='Home' middleComponent={'FinalScore'} moveTo='Scores' />
         </View>
         <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} />
         <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 16 }}>News</Text></View>
