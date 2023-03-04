@@ -11,13 +11,29 @@ const Match = ({ club1, club2 }: IMatch) => {
     const [isMatchOngoing, setIsMatchOngoing] = useState(true)
     type RootStackParamList = {
         FinalScore: { club1: IClub, club2: IClub };
+        Scores: { club1: IClub, club2: IClub };
     };
-    type MatchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'FinalScore'>;
+    type MatchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'FinalScore'|'Scores'>;
 
     const navigation = useNavigation<MatchScreenNavigationProp>()
+
+    const handlePress = () => {
+        if (!isMatchOngoing) {
+            navigation.navigate("FinalScore", {
+              club1: { ...club1, logo: homeTeamLogo },
+              club2: { ...club2, logo: awayTeamLogo },
+            });
+        }
+        else {
+            navigation.navigate("Scores", {
+              club1: { ...club1, logo: homeTeamLogo },
+              club2: { ...club2, logo: awayTeamLogo },
+            });
+        }
+    }
     return (
         <Pressable
-            onPress={() => navigation.navigate('FinalScore', { club1: { ...club1, logo: homeTeamLogo }, club2: { ...club2, logo: awayTeamLogo } })}
+            onPress={() => handlePress()}
             style={{
                 width: '98%', backgroundColor: 'white', height: 80, alignItems: 'center', justifyContent: "space-evenly", shadowColor: 'black',
                 shadowOffset: { width: 0, height: 0 },

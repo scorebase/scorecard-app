@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./src/screens/Home";
 import Scores from "./src/screens/Scores/Scores";
+import FinalScore from "./src/screens/FinalScore";
 
 const Stack = createNativeStackNavigator();
 
