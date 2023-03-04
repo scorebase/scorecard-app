@@ -6,7 +6,7 @@ const StandingsView = () => {
   return (
     <View style={{ height: '100%', backgroundColor: 'white', marginTop: 20, padding: 28 }}>
       <Text style={{ fontWeight: '500', fontSize: 17, letterSpacing: 1 }}>Group Standings </Text>
-      <ScrollView contentContainerStyle={{ paddingBottom: 120 }} style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={{paddingBottom:120}} style={{  flex: 1 }} showsVerticalScrollIndicator={false}>
         <GroupCard group='A' />
         <GroupCard group='B' />
         <GroupCard group='C' />
