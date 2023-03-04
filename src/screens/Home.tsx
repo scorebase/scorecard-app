@@ -1,7 +1,7 @@
 import { Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import MatchesView from './screens/MatchesView/MatchesView';
-import StandingsView from './screens/StandingsView/StandingsView';
+import MatchesView from './MatchesView/MatchesView';
+import StandingsView from './StandingsView/StandingsView';
 
 
 const Home = () => {

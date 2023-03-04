@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { CaretLeft, Info } from "phosphor-react";
 import { Ionicons } from "@expo/vector-icons";
 
-const ScreenNavigationHeader = ({ backTo, middleComponent }) => {
+const ScreenNavigationHeader = ({ backTo, middleComponent, moveTo }) => {
   const navigation = useNavigation();
   return (
     <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -17,7 +17,7 @@ const ScreenNavigationHeader = ({ backTo, middleComponent }) => {
           {middleComponent}
         </Text>
       </View>
-      <Pressable>
+      <Pressable onPress={() => navigation.navigate(moveTo as never)}>
         <Ionicons
           name="md-information-circle-outline"
           size={24}
