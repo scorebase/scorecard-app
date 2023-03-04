@@ -7,7 +7,7 @@ import Match from '../../components/Matches/Match';
 const MatchesView = () => {
   const club1 = {
     name: 'SEES',
-    logo: <SeesLogo />
+    logo: '../../assets/png/SEES.png'
   }
   const club2 = {
     name: 'SVY',
@@ -17,12 +17,6 @@ const MatchesView = () => {
     <View style={{ height: '100%', backgroundColor: 'white', marginTop: 20, padding: 28 }}>
       <Text style={{ fontWeight: '500', fontSize: 17, letterSpacing: 1 }}>Ules Cup Matches </Text>
       <ScrollView style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
-        <Match club1={club1} club2={club2} />
-        <Match club1={club1} club2={club2} />
-        <Match club1={club1} club2={club2} />
-        <Match club1={club1} club2={club2} />
-        <Match club1={club1} club2={club2} />
-        <Match club1={club1} club2={club2} />
         <Match club1={club1} club2={club2} />
       </ScrollView>
     </View>
