@@ -20,7 +20,7 @@ const FinalScore = () => {
           <ScreenNavigationHeader backTo='Home' middleComponent={'FinalScore'} />
         </View>
         <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} />
-        <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 14 }}>News</Text></View>
+        <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 16 }}>News</Text></View>
         <ScrollView style={{ backgroundColor: 'white' }} showsVerticalScrollIndicator={false}>
         </ScrollView>
       </View>

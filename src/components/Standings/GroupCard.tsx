@@ -17,7 +17,7 @@ const GroupCard = ({ group }) => {
 
   return (
     <View style={{
-      width: '98%', height: 270, backgroundColor: 'white', alignSelf: 'center', borderRadius: 12, shadowColor: 'black',
+      width: '98%', height: 250, backgroundColor: 'white', alignSelf: 'center', borderRadius: 12, shadowColor: 'black',
       shadowOffset: { width: 0, height: 0 },
       shadowOpacity: 0.2,
       shadowRadius: 4,

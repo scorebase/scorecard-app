@@ -2,10 +2,12 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { IMatch } from '../../interface/match-interface';
 import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
 
 const Match = ({ club1, club2 }: IMatch) => {
     const homeTeamLogo = require('../../../assets/png/SEES.png')
     const awayTeamLogo = require('../../../assets/png/SVY.png')
+    const [isMatchOngoing, setIsMatchOngoing] = useState(true)
     const navigation = useNavigation()
     return (
         <Pressable
@@ -26,9 +28,16 @@ const Match = ({ club1, club2 }: IMatch) => {
                 <View><Image source={homeTeamLogo} style={{ width: 25, height: 25 }} /></View>
             </View>
             <View style={{ justifyContent: 'center', }}>
-                <View><Text style={{ fontWeight: '300' }}>13 March 2023</Text>
-                    <Text style={{ textAlign: 'center', fontWeight: '300' }}>15:00</Text></View>
-
+                {isMatchOngoing ?
+                    <View>
+                        <Text style={{ fontSize: 18, fontWeight: '500' }}>2{' '} - {' '}2</Text>
+                        <Text style={{ textAlign: 'center',fontWeight:"600", marginTop:5 }}>81</Text>
+                    </View> :
+                    <View>
+                        <Text style={{ fontWeight: '300' }}>13 March 2023</Text>
+                        <Text style={{ textAlign: 'center', fontWeight: '300' }}>15:00</Text>
+                    </View>
+                }
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Text style={{ fontSize: 17, fontWeight: '600' }}>{club2.name} </Text>
