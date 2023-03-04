@@ -60,12 +60,12 @@ const ScoreCard = ({ homeTeam, awayTeam }) => {
       </View>
       <View style={{ flexDirection: 'row', justifyContent: "space-between", marginTop: 8, width: "90%", alignSelf: "center" }}>
         <View>
-          <Text style={styles.scorer}>Yinka </Text>
-          <Text style={styles.scorer}>Lekan </Text>
+          <Text style={styles.scorer}>Yinka 16"</Text>
+          <Text style={styles.scorer}>Lekan 45"</Text>
         </View>
         <View>
-          <Text style={styles.scorer}>Gbadebo</Text>
-          <Text style={styles.scorer}>Eekial</Text>
+          <Text style={styles.scorer}>Gbadebo 78"</Text>
+          <Text style={styles.scorer}>Eekial 80"</Text>
         </View>
       </View>
     </View>
