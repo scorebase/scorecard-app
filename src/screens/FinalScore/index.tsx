@@ -3,13 +3,19 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ScreenNavigationHeader from '../../components/common/ScreenNavigationHeader'
 import { Dimensions } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import { RouteProp, useRoute } from '@react-navigation/native';
 import { StatusBar } from 'react-native'
+import { IClub } from '../../interface/match-interface';
 const window = Dimensions.get('window');
 // StatusBar.setBarStyle('light-content',true)
 const { height: windowHeight } = window;
 const FinalScore = () => {
-  const route = useRoute()
+  type RootStackParamList = {
+    FinalScore: { club1: IClub, club2: IClub };
+  };
+  type FinalScoreScreenRouteProp = RouteProp<RootStackParamList, 'FinalScore'>;
+
+  const route = useRoute<FinalScoreScreenRouteProp>()
   let homeTeam = route.params.club1
   let awayTeam = route.params.club2
   return (
@@ -21,6 +27,23 @@ const FinalScore = () => {
         <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} />
         <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 16 }}>News</Text></View>
         <ScrollView style={{ backgroundColor: 'white' }} showsVerticalScrollIndicator={false}>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
         </ScrollView>
       </View>
     </SafeAreaView>
