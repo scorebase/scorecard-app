@@ -138,7 +138,7 @@ const StatsCard = ({ homeTeam, awayTeam, title }: IStatsCard) => (
       width: "100%",
       alignSelf: "center",
       alignItems: "center",
-      paddingVertical: 10,
+      paddingVertical: 15,
     }}
   >
 
