@@ -13,23 +13,20 @@ const Match = ({ club1, club2 }: IMatch) => {
         FinalScore: { club1: IClub, club2: IClub };
         Scores: { club1: IClub, club2: IClub };
     };
-    type MatchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'FinalScore'|'Scores'>;
+    type MatchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'FinalScore' | 'Scores'>;
 
     const navigation = useNavigation<MatchScreenNavigationProp>()
 
     const handlePress = () => {
-        if (!isMatchOngoing) {
+        !isMatchOngoing ?
             navigation.navigate("FinalScore", {
-              club1: { ...club1, logo: homeTeamLogo },
-              club2: { ...club2, logo: awayTeamLogo },
-            });
-        }
-        else {
+                club1: { ...club1, logo: homeTeamLogo },
+                club2: { ...club2, logo: awayTeamLogo },
+            }) :
             navigation.navigate("Scores", {
-              club1: { ...club1, logo: homeTeamLogo },
-              club2: { ...club2, logo: awayTeamLogo },
+                club1: { ...club1, logo: homeTeamLogo },
+                club2: { ...club2, logo: awayTeamLogo },
             });
-        }
     }
     return (
         <Pressable

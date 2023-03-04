@@ -2,8 +2,6 @@ import { RouteProp, useRoute } from "@react-navigation/native";
 import React from "react";
 import {
   Image,
-  Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -16,7 +14,6 @@ const Scores = () => {
     Scores: { club1: IClub; club2: IClub };
   };
   type ScoresScreenRouteProp = RouteProp<RootStackParamList, "Scores">;
-
   const route = useRoute<ScoresScreenRouteProp>();
   let homeTeam = route.params.club1;
   let awayTeam = route.params.club2;
@@ -53,13 +50,8 @@ const Scores = () => {
             alignItems: "center",
           }}
         >
-          <StatsCard homeTeam={10} awayTeam={10} title="Total Shots" />
-          <StatsCard homeTeam={10} awayTeam={10} title="Shots on Target" />
-          <StatsCard homeTeam={10} awayTeam={10} title="Fouls" />
-          <StatsCard homeTeam={10} awayTeam={10} title="Yellow Cards" />
-          <StatsCard homeTeam={10} awayTeam={10} title="Red Cards" />
-          <StatsCard homeTeam={10} awayTeam={10} title="Offsides" />
-          <StatsCard homeTeam={10} awayTeam={10} title="Corner Kicks" />
+          <StatsCard homeTeamStat={10} awayTeamStat={10} title="Yellow Cards" />
+          <StatsCard homeTeamStat={10} awayTeamStat={10} title="Red Cards" />
         </View>
       </View>
     </View>
@@ -71,8 +63,8 @@ export default Scores;
 const styles = StyleSheet.create({
   scorer: {
     paddingBottom: 3,
-    fontSize: 12,
-    fontWeight: "300",
+    fontSize: 13,
+    fontWeight: "400",
   },
 });
 
@@ -124,12 +116,12 @@ const ScoreCard = ({ homeTeam, awayTeam }) => {
 };
 
 interface IStatsCard {
-  homeTeam: string | number;
-  awayTeam: string | number;
+  homeTeamStat: string | number;
+  awayTeamStat: string | number;
   title: string;
 }
 
-const StatsCard = ({ homeTeam, awayTeam, title }: IStatsCard) => (
+const StatsCard = ({ homeTeamStat, awayTeamStat, title }: IStatsCard) => (
   <View
     style={{
       display: "flex",
@@ -141,8 +133,8 @@ const StatsCard = ({ homeTeam, awayTeam, title }: IStatsCard) => (
       paddingVertical: 15,
     }}
   >
-    <Text style={{ fontSize: 14, fontWeight: "600" }}>{homeTeam}</Text>
+    <Text style={{ fontSize: 14, fontWeight: "600" }}>{homeTeamStat}</Text>
     <Text style={{ fontSize: 16, fontWeight: "300" }}>{title}</Text>
-    <Text style={{ fontSize: 14, fontWeight: "600" }}>{awayTeam}</Text>
+    <Text style={{ fontSize: 14, fontWeight: "600" }}>{awayTeamStat}</Text>
   </View>
 );
