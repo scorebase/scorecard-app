@@ -12,11 +12,10 @@ const FinalScore = () => {
   const route = useRoute()
   let homeTeam = route.params.club1
   let awayTeam = route.params.club2
-  console.log(homeTeam, awayTeam)
   return (
     <SafeAreaView style={{ height: '100%', backgroundColor: 'white' }}>
       <View style={{ padding: 20, backgroundColor: 'white', height: windowHeight }}>
-        <View style={{ }}>
+        <View style={{}}>
           <ScreenNavigationHeader backTo='Home' middleComponent={'FinalScore'} />
         </View>
         <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} />
