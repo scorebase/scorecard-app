@@ -4,7 +4,6 @@ import { IMatch } from '../../interface/match-interface';
 import { useNavigation } from '@react-navigation/native';
 
 const Match = ({ club1, club2 }: IMatch) => {
-    console.warn(club1)
     const homeTeamLogo = require('../../../assets/png/SEES.png')
     const awayTeamLogo = require('../../../assets/png/SVY.png')
     const navigation = useNavigation()
