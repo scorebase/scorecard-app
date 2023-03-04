@@ -124,8 +124,8 @@ const ScoreCard = ({ homeTeam, awayTeam }) => {
 };
 
 interface IStatsCard {
-    homeTeam: any;
-    awayTeam: any;
+  homeTeam: string | number;
+  awayTeam: string | number;
   title: string;
 }
 
@@ -141,7 +141,6 @@ const StatsCard = ({ homeTeam, awayTeam, title }: IStatsCard) => (
       paddingVertical: 15,
     }}
   >
-
     <Text style={{ fontSize: 14, fontWeight: "600" }}>{homeTeam}</Text>
     <Text style={{ fontSize: 16, fontWeight: "300" }}>{title}</Text>
     <Text style={{ fontSize: 14, fontWeight: "600" }}>{awayTeam}</Text>
