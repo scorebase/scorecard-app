@@ -2,6 +2,7 @@ import { RouteProp, useRoute } from "@react-navigation/native";
 import React from "react";
 import {
   Image,
+  SafeAreaView,
   StyleSheet,
   Text,
   View,
@@ -20,8 +21,8 @@ const Scores = () => {
   let awayTeam = route.params.club2;
   return (
     <AppBackground>
-      <View style={{ padding: 20 }}>
-        <View style={{ paddingTop: 30 }}>
+      <SafeAreaView >
+        <View style={{ paddingTop:10,paddingHorizontal:28}}>
           <ScreenNavigationHeader
             backTo="Home"
             middleComponent={"Scores"}
@@ -30,7 +31,7 @@ const Scores = () => {
         </View>
         <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} />
         {/* Statistics */}
-        <View style={{ marginTop: 20, padding: 12 }}>
+        <View style={{ marginTop: 20, padding: 28 }}>
           <Text
             style={{
               textAlign: "center",
@@ -56,7 +57,7 @@ const Scores = () => {
             <StatsCard homeTeamStat={10} awayTeamStat={10} title="Red Cards" />
           </View>
         </View>
-      </View>
+      </SafeAreaView>
     </AppBackground>
   );
 };

@@ -3,11 +3,10 @@ import { ImageBackground, StyleSheet, View } from 'react-native';
 
 const AppBackground = ({ children }) => {
     return (
-        <ImageBackground source={require('../../../assets/png/AppBackground.png')} style={styles.image}>
-            <View style={styles.overlay} />
-            {children}
-        </ImageBackground>
-
+            <ImageBackground source={require('../../../assets/png/AppBackground.png')} style={styles.image}>
+                <View style={styles.overlay} />
+                {children}
+            </ImageBackground>
     );
 };
 
