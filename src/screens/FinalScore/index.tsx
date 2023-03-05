@@ -19,14 +19,14 @@ const FinalScore = () => {
   let homeTeam = route.params.club1
   let awayTeam = route.params.club2
   return (
-    <SafeAreaView style={{ height: '100%', backgroundColor: 'white' }}>
+    <SafeAreaView style={{ height: '100%' }}>
       <View style={{ padding: 20, backgroundColor: 'white', height: windowHeight }}>
         <View style={{}}>
           <ScreenNavigationHeader backTo='Home' middleComponent={'FinalScore'} moveTo='Scores' />
         </View>
         <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} />
         <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 16 }}>News</Text></View>
-        <ScrollView style={{ backgroundColor: 'white' }} showsVerticalScrollIndicator={false}>
+        <ScrollView style={{  }} showsVerticalScrollIndicator={false}>
           <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
           <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
           <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>

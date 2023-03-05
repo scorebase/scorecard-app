@@ -6,6 +6,7 @@ import {
   Text,
   View,
 } from "react-native";
+import AppBackground from "../../components/common/ImageBackground";
 import ScreenNavigationHeader from "../../components/common/ScreenNavigationHeader";
 import { IClub } from "../../interface/match-interface";
 
@@ -18,43 +19,45 @@ const Scores = () => {
   let homeTeam = route.params.club1;
   let awayTeam = route.params.club2;
   return (
-    <View style={{ height: "100%", backgroundColor: "white", padding: 20 }}>
-      <View style={{ paddingTop: 30 }}>
-        <ScreenNavigationHeader
-          backTo="Home"
-          middleComponent={"Scores"}
-          moveTo="Home"
-        />
-      </View>
-      <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} />
-      {/* Statistics */}
-      <View style={{ width: "100%", marginTop: 20, padding: 12 }}>
-        <Text
-          style={{
-            textAlign: "center",
-            marginVertical: 10,
-            fontWeight: "500",
-            fontSize: 18,
-            paddingBottom: 10,
-          }}
-        >
-          Statistics
-        </Text>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            width: "100%",
-            alignSelf: "center",
-            alignItems: "center",
-          }}
-        >
-          <StatsCard homeTeamStat={10} awayTeamStat={10} title="Yellow Cards" />
-          <StatsCard homeTeamStat={10} awayTeamStat={10} title="Red Cards" />
+    <AppBackground>
+      <View style={{ padding: 20 }}>
+        <View style={{ paddingTop: 30 }}>
+          <ScreenNavigationHeader
+            backTo="Home"
+            middleComponent={"Scores"}
+            moveTo="Home"
+          />
+        </View>
+        <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} />
+        {/* Statistics */}
+        <View style={{ marginTop: 20, padding: 12 }}>
+          <Text
+            style={{
+              textAlign: "center",
+              marginVertical: 10,
+              fontWeight: "500",
+              fontSize: 18,
+              paddingBottom: 10,
+            }}
+          >
+            Statistics
+          </Text>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              width: "100%",
+              alignSelf: "center",
+              alignItems: "center",
+            }}
+          >
+            <StatsCard homeTeamStat={10} awayTeamStat={10} title="Yellow Cards" />
+            <StatsCard homeTeamStat={10} awayTeamStat={10} title="Red Cards" />
+          </View>
         </View>
       </View>
-    </View>
+    </AppBackground>
   );
 };
 
