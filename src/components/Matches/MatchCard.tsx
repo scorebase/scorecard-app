@@ -11,7 +11,7 @@ const MatchCard = ({ home_team, away_team, home_score, away_score, is_complete: 
     const [isMatchOngoing] = useState(home_score !== null)
     type RootStackParamList = {
         FinalScore: { home_team: IClub, away_team: IClub, home_score: number, away_score: number };
-        Scores: { club1: IClub, club2: IClub };
+        Scores: { home_team: IClub, away_team: IClub, home_score: number, away_score: number };
     };
     const isoDate = date_time;
     let dateOfMatch = moment(isoDate).format('dddd, MMMM Do')
@@ -28,8 +28,10 @@ const MatchCard = ({ home_team, away_team, home_score, away_score, is_complete: 
                 away_score
             }) :
             navigation.navigate("Scores", {
-                club1: { ...home_team, logo: home_team.logo },
-                club2: { ...away_team, logo: away_team.logo },
+                home_team,
+                away_team,
+                home_score,
+                away_score
             });
     }
     return (

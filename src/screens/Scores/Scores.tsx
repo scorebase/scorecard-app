@@ -8,28 +8,31 @@ import {
   View,
 } from "react-native";
 import AppBackground from "../../components/common/ImageBackground";
+import { ScoreCard } from "../../components/common/ScoreCard";
 import ScreenNavigationHeader from "../../components/common/ScreenNavigationHeader";
 import { IClub } from "../../interface/match-interface";
 
 const Scores = () => {
   type RootStackParamList = {
-    Scores: { club1: IClub; club2: IClub };
+    Scores: { home_team: IClub, away_team: IClub, home_score: number, away_score: number };
   };
   type ScoresScreenRouteProp = RouteProp<RootStackParamList, "Scores">;
   const route = useRoute<ScoresScreenRouteProp>();
-  let homeTeam = route.params.club1;
-  let awayTeam = route.params.club2;
+  let homeTeam = route.params.home_team
+  let awayTeam = route.params.away_team
+  let homeScore = route.params.home_score
+  let awayScore = route.params.away_score
   return (
     <AppBackground>
       <SafeAreaView >
-        <View style={{ paddingTop:10,paddingHorizontal:28}}>
+        <View style={{ paddingTop: 10, paddingHorizontal: 28 }}>
           <ScreenNavigationHeader
             backTo="Home"
             middleComponent={"Scores"}
             moveTo="Home"
           />
         </View>
-        <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} />
+        <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} homeScore={homeScore} awayScore={awayScore} />
         {/* Statistics */}
         <View style={{ marginTop: 20, padding: 28 }}>
           <Text
@@ -72,52 +75,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ScoreCard = ({ homeTeam, awayTeam }) => {
-  return (
-    <View style={{ height: 200, width: "100%", marginTop: 20, padding: 12 }}>
-      <Text
-        style={{ textAlign: "center", marginVertical: 15, fontWeight: "500" }}
-      >
-        81'
-      </Text>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          width: "90%",
-          alignSelf: "center",
-          alignItems: "center",
-        }}
-      >
-        <View>
-          <Image source={homeTeam.logo} style={{ width: 55, height: 55 }} />
-        </View>
-        <Text style={{ fontSize: 25, fontWeight: "700" }}>2 - 2</Text>
-        <View>
-          <Image source={awayTeam.logo} style={{ width: 55, height: 55 }} />
-        </View>
-      </View>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginTop: 8,
-          width: "90%",
-          alignSelf: "center",
-        }}
-      >
-        <View>
-          <Text style={styles.scorer}>Yinka 16'</Text>
-          <Text style={styles.scorer}>Lekan 45'</Text>
-        </View>
-        <View>
-          <Text style={styles.scorer}>Gbadebo 78'</Text>
-          <Text style={styles.scorer}>Eekial 80'</Text>
-        </View>
-      </View>
-    </View>
-  );
-};
+
 
 interface IStatsCard {
   homeTeamStat: string | number;
