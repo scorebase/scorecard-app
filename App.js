@@ -6,14 +6,24 @@ import Scores from "./src/screens/Scores/Scores";
 import FinalScore from "./src/screens/FinalScore";
 import AppBackground from "./src/components/common/ImageBackground";
 import {SafeAreaView} from "react-native-safe-area-context";
+import {QueryClient, QueryClientProvider} from "react-query";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+	const queryClient = new QueryClient({
+		defaultOptions: {
+		  queries: {
+			staleTime: 5000,
+			cacheTime: 60000,
+		  },
+		},
+	  });
+	  
 	return (
-		
-			<SafeAreaView style={{flex: 1}}>
-				<StatusBar translucent backgroundColor="transparent" />
+		<SafeAreaView style={{flex: 1}}>
+			<StatusBar translucent backgroundColor="transparent" />
+			<QueryClientProvider client={queryClient}>
 				<NavigationContainer>
 					<Stack.Navigator
 						screenOptions={{
@@ -29,6 +39,7 @@ export default function App() {
 						{/* <StatusBar style="auto" /> */}
 					</Stack.Navigator>
 				</NavigationContainer>
-			</SafeAreaView>
+			</QueryClientProvider>
+		</SafeAreaView>
 	);
 }

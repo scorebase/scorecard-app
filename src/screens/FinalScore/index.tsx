@@ -11,22 +11,24 @@ const window = Dimensions.get('window');
 const { height: windowHeight } = window;
 const FinalScore = () => {
   type RootStackParamList = {
-    FinalScore: { club1: IClub, club2: IClub };
+    FinalScore: { home_team: IClub, away_team: IClub, home_score: number, away_score: number };
   };
   type FinalScoreScreenRouteProp = RouteProp<RootStackParamList, 'FinalScore'>;
 
   const route = useRoute<FinalScoreScreenRouteProp>()
-  let homeTeam = route.params.club1
-  let awayTeam = route.params.club2
+  let homeTeam = route.params.home_team
+  let awayTeam = route.params.away_team
+  let homeScore = route.params.home_score
+  let awayScore = route.params.away_score
   return (
     <SafeAreaView style={{ height: '100%' }}>
       <View style={{ padding: 20, backgroundColor: 'white', height: windowHeight }}>
         <View style={{}}>
           <ScreenNavigationHeader backTo='Home' middleComponent={'FinalScore'} moveTo='Scores' />
         </View>
-        <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} />
+        <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} homeScore={homeScore} awayScore={awayScore} />
         <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 16 }}>News</Text></View>
-        <ScrollView style={{  }} showsVerticalScrollIndicator={false}>
+        <ScrollView style={{}} showsVerticalScrollIndicator={false}>
           <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
           <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
           <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
@@ -37,14 +39,14 @@ const FinalScore = () => {
     </SafeAreaView>
   )
 }
-const ScoreCard = ({ homeTeam, awayTeam }) => {
+const ScoreCard = ({ homeTeam, awayTeam, homeScore, awayScore }) => {
   return (
     <View style={{ height: 200, width: '100%', marginTop: 20, padding: 12 }}>
       <Text style={{ textAlign: 'center', marginVertical: 15, fontWeight: '500' }}>Full Time</Text>
       <View style={{ flexDirection: "row", justifyContent: 'space-between', width: '90%', alignSelf: "center", alignItems: 'center' }}>
-        <View><Image source={homeTeam.logo} style={{ width: 55, height: 55 }} /></View>
-        <Text style={{ fontSize: 25, fontWeight: '700' }}>2 - 2</Text>
-        <View><Image source={awayTeam.logo} style={{ width: 55, height: 55 }} /></View>
+        <View><Image source={{ uri: homeTeam.logo }} style={{ width: 55, height: 55 }} /></View>
+        <Text style={{ fontSize: 25, fontWeight: '700' }}>{homeScore}{' '} - {' '}{awayScore}</Text>
+        <View><Image source={{ uri: awayTeam.logo }} style={{ width: 55, height: 55 }} /></View>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: "space-between", marginTop: 8, width: "90%", alignSelf: "center" }}>
         <View>

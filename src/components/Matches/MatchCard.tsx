@@ -4,28 +4,32 @@ import { IClub, IMatch } from '../../interface/match-interface';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
+import moment from 'moment';
 
-const Match = ({ club1, club2 }: IMatch) => {
-    const homeTeamLogo = require('../../../assets/png/SEES.png')
-    const awayTeamLogo = require('../../../assets/png/SVY.png')
-    const [isMatchOngoing, setIsMatchOngoing] = useState(true)
+const MatchCard = ({ home_team, away_team, home_score, away_score, is_complete: matchIsComplete, date_time }: IMatch) => {
+
+    const [isMatchOngoing] = useState(home_score !== null)
     type RootStackParamList = {
-        FinalScore: { club1: IClub, club2: IClub };
+        FinalScore: { home_team: IClub, away_team: IClub, home_score: number, away_score: number };
         Scores: { club1: IClub, club2: IClub };
     };
+    const isoDate = date_time;
+    let dateOfMatch = moment(isoDate).format('dddd, MMMM Do')
+    let timeOfMatch = moment(isoDate).format('h:mm')
     type MatchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'FinalScore' | 'Scores'>;
-
     const navigation = useNavigation<MatchScreenNavigationProp>()
 
     const handlePress = () => {
-        !isMatchOngoing ?
+        matchIsComplete ?
             navigation.navigate("FinalScore", {
-                club1: { ...club1, logo: homeTeamLogo },
-                club2: { ...club2, logo: awayTeamLogo },
+                home_team,
+                away_team,
+                home_score,
+                away_score
             }) :
             navigation.navigate("Scores", {
-                club1: { ...club1, logo: homeTeamLogo },
-                club2: { ...club2, logo: awayTeamLogo },
+                club1: { ...home_team, logo: home_team.logo },
+                club2: { ...away_team, logo: away_team.logo },
             });
     }
     return (
@@ -43,29 +47,29 @@ const Match = ({ club1, club2 }: IMatch) => {
 
             }}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Text style={{ fontSize: 17, fontWeight: '600' }}>{club1.name} </Text>
-                <View><Image source={homeTeamLogo} style={{ width: 25, height: 25 }} /></View>
+                <Text style={{ fontSize: 17, fontWeight: '600' }}>{home_team.short_name} </Text>
+                <View><Image source={{ uri: home_team.logo }} style={{ width: 25, height: 25 }} /></View>
             </View>
             <View style={{ justifyContent: 'center', }}>
                 {isMatchOngoing ?
                     <View>
-                        <Text style={{ fontSize: 18, fontWeight: '500' }}>2{' '} - {' '}2</Text>
-                        <Text style={{ textAlign: 'center', fontWeight: "600", marginTop: 5, color: 'green' }}>live</Text>
+                        <Text style={{ fontSize: 18, fontWeight: '500' }}>{home_score}{' '} - {' '}{away_score}</Text>
+                        <Text style={{ textAlign: 'center', fontWeight: "600", marginTop: 5, color: 'green' }}>{matchIsComplete ? <Text style={{ color: 'black' }} >FT</Text> : 'live'}</Text>
                     </View> :
                     <View>
-                        <Text style={{ fontWeight: '300' }}>13 March 2023</Text>
-                        <Text style={{ textAlign: 'center', fontWeight: '300' }}>15:00</Text>
+                        <Text style={{ fontWeight: '300' }}>{dateOfMatch}</Text>
+                        <Text style={{ textAlign: 'center', fontWeight: '300' }}>{timeOfMatch}</Text>
                     </View>
                 }
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Text style={{ fontSize: 17, fontWeight: '600' }}>{club2.name} </Text>
-                <View><Image source={awayTeamLogo} style={{ width: 25, height: 25 }} /></View>
+                <Text style={{ fontSize: 17, fontWeight: '600' }}>{away_team.short_name} </Text>
+                <View><Image source={{ uri: away_team.logo }} style={{ width: 25, height: 25 }} /></View>
             </View>
         </Pressable>
     )
 }
 
-export default Match
+export default MatchCard
 
 const styles = StyleSheet.create({})

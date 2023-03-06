@@ -1,8 +1,14 @@
 export interface IMatch {
-   club1:IClub,
-   club2:IClub
+    id?: string,
+    home_team: IClub,
+    away_team: IClub,
+    away_score: number,
+    home_score: number,
+    is_complete: number
+    date_time: string
 }
 export interface IClub {
-    name:string,
-    logo:React.ReactNode
+    short_name: string,
+    logo: string,
+    r
 }
