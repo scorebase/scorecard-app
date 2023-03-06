@@ -1,3 +1,4 @@
+import React from 'react'
 import { Text, View, Image,StyleSheet} from "react-native"
 
 export const ScoreCard = ({ homeTeam, awayTeam, homeScore, awayScore }) => {
