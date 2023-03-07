@@ -10,11 +10,12 @@ import {
 import AppBackground from "../../components/common/ImageBackground";
 import { ScoreCard } from "../../components/common/ScoreCard";
 import ScreenNavigationHeader from "../../components/common/ScreenNavigationHeader";
+import { useAxios } from "../../components/hooks/useAxios.";
 import { IClub } from "../../interface/match-interface";
 
 const Scores = () => {
   type RootStackParamList = {
-    Scores: { home_team: IClub, away_team: IClub, home_score: number, away_score: number };
+    Scores: { home_team: IClub, away_team: IClub, home_score: number, away_score: number, match_id: number };
   };
   type ScoresScreenRouteProp = RouteProp<RootStackParamList, "Scores">;
   const route = useRoute<ScoresScreenRouteProp>();
@@ -22,6 +23,20 @@ const Scores = () => {
   let awayTeam = route.params.away_team
   let homeScore = route.params.home_score
   let awayScore = route.params.away_score
+  let matchId = route.params.match_id
+  const [response, isLoading] = useAxios(`https://scorecard-be.herokuapp.com/match/event/${matchId}`)
+  const goalsEvent = response.filter((event) => event.event_type === 'Goal')
+  const redCardEvent = response.filter((event) => event.event_type === 'Red Card')
+  const assistEvent = response.filter((event) => event.event_type === 'Assist')
+  const yellowCardEvent = response.filter((event) => event.event_type === 'Yellow Card')
+  const homeTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === homeTeam.short_name)
+  const awayTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === awayTeam.short_name)
+  const homeTeamRedCard = redCardEvent.filter((card) => card.team.short_name === homeTeam.short_name)
+  const awayTeamRedCard = redCardEvent.filter((card) => card.team.short_name === awayTeam.short_name)
+  const homeTeamYellowCard = yellowCardEvent.filter((card) => card.team.short_name === homeTeam.short_name)
+  const awayTeamYellowCard = yellowCardEvent.filter((card) => card.team.short_name === awayTeam.short_name)
+
+  console.log('the red card event', response)
   return (
     <AppBackground>
       <SafeAreaView >
@@ -32,7 +47,7 @@ const Scores = () => {
             moveTo="Home"
           />
         </View>
-        <ScoreCard homeTeam={homeTeam} awayTeam={awayTeam} homeScore={homeScore} awayScore={awayScore} />
+        <ScoreCard homeTeam={homeTeam} homeTeamScorers={homeTeamScorers} awayTeamScorers={awayTeamScorers} awayTeam={awayTeam} homeScore={homeScore} awayScore={awayScore} header='' />
         {/* Statistics */}
         <View style={{ marginTop: 20, padding: 28 }}>
           <Text
@@ -56,8 +71,8 @@ const Scores = () => {
               alignItems: "center",
             }}
           >
-            <StatsCard homeTeamStat={10} awayTeamStat={10} title="Yellow Cards" />
-            <StatsCard homeTeamStat={10} awayTeamStat={10} title="Red Cards" />
+            <StatsCard homeTeamStat={homeTeamYellowCard.length} awayTeamStat={awayTeamYellowCard.length} title="Yellow Cards" />
+            <StatsCard homeTeamStat={homeTeamRedCard.length} awayTeamStat={awayTeamRedCard.length} title="Red Cards" />
           </View>
         </View>
       </SafeAreaView>

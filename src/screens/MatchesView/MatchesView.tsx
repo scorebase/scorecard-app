@@ -6,45 +6,13 @@ import axios from 'axios';
 import { isError, useQuery } from 'react-query';
 import { IMatch } from '../../interface/match-interface';
 import MatchCard from '../../components/Matches/MatchCard';
+import { useAxios } from '../../components/hooks/useAxios.';
 
 const MatchesView = () => {
-  const [matches, setMatches] = useState([])
-  const [showNetworkError, setShowNetworkError] = useState(false);
-
-  type matchesData = {
-    data: {
-
-    }
-  }
-  const fetchMatches = async (): Promise<matchesData[]> => {
-    try {
-      const options = {
-        url: 'https://scorecard-be.herokuapp.com/match/all',
-        method: 'GET',
-        mode: "no-cors",
-        headers: {
-          'Content-Type': 'application/json;charset=UTF-8',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-      }
-      const response = await axios(options)
-
-      console.log('the response of the data is', response.data)
-      setMatches(response.data.data)
-      return
-    } catch (error) {
-      if (error.response) {
-      } else if (error.request) {
-        setShowNetworkError(true)
-      }
-      console.log('Error fetching match', error)
-    }
-  }
-  const { data, isLoading, isSuccess, isError, error } = useQuery<matchesData[], Error>('matches', fetchMatches)
-  let stageName = matches[0]?.type
-  console.log('is Error', isError)
-  if (showNetworkError) {
+  const [response, isNetworkError, isLoading] = useAxios('https://scorecard-be.herokuapp.com/match/all')
+  console.warn(response)
+  let stageName = response[0]?.type
+  if (isNetworkError) {
     return (
       <View style={{
         flex: 1,
@@ -88,7 +56,7 @@ const MatchesView = () => {
         <>
           <Text style={{ marginTop: 12 }}>{stageName}</Text>
           <ScrollView style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
-            {matches.map((match: IMatch) => (<View key={match.id}><MatchCard date_time={match.date_time} home_score={match.home_score} is_complete={match.is_complete} away_score={match.away_score} home_team={match.home_team} away_team={match.away_team} /></View>))}
+            {response.map((match: IMatch) => (<View key={match.id}><MatchCard id={match.id} date_time={match.date_time} home_score={match.home_score} is_complete={match.is_complete} away_score={match.away_score} home_team={match.home_team} away_team={match.away_team} /></View>))}
           </ScrollView>
         </>
       }

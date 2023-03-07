@@ -5,33 +5,35 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
 import moment from 'moment';
+import { useAxios } from '../hooks/useAxios.';
 
-const MatchCard = ({ home_team, away_team, home_score, away_score, is_complete: matchIsComplete, date_time }: IMatch) => {
+const MatchCard = ({ home_team, away_team, home_score, away_score, is_complete: matchIsComplete, date_time, id: match_id }: IMatch) => {
 
     const [isMatchOngoing] = useState(home_score !== null)
     type RootStackParamList = {
-        FinalScore: { home_team: IClub, away_team: IClub, home_score: number, away_score: number };
-        Scores: { home_team: IClub, away_team: IClub, home_score: number, away_score: number };
+        FinalScore: { home_team: IClub, away_team: IClub, home_score: number, away_score: number, match_id: number };
+        Scores: { home_team: IClub, away_team: IClub, home_score: number, away_score: number, match_id: number };
     };
     const isoDate = date_time;
     let dateOfMatch = moment(isoDate).format('dddd, MMMM Do')
     let timeOfMatch = moment(isoDate).format('h:mm')
     type MatchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'FinalScore' | 'Scores'>;
     const navigation = useNavigation<MatchScreenNavigationProp>()
-
     const handlePress = () => {
         matchIsComplete ?
             navigation.navigate("FinalScore", {
                 home_team,
                 away_team,
                 home_score,
-                away_score
+                away_score,
+                match_id,
             }) :
             navigation.navigate("Scores", {
                 home_team,
                 away_team,
                 home_score,
-                away_score
+                away_score,
+                match_id,
             });
     }
     return (
