@@ -9,8 +9,7 @@ import MatchCard from '../../components/Matches/MatchCard';
 import { useAxios } from '../../components/hooks/useAxios.';
 
 const MatchesView = () => {
-  const [response, isNetworkError, isLoading] = useAxios('https://scorecard-be.herokuapp.com/match/all')
-  console.warn(response)
+  const [response, isNetworkError, isLoading] =  useAxios('https://scorecard-be.herokuapp.com/match/all')
   let stageName = response[0]?.type
   if (isNetworkError) {
     return (

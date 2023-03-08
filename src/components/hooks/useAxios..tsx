@@ -8,8 +8,8 @@ type matchesData = {
     }
 }
 
-export const useAxios = (url: string) => {
-    const [response, setResponse] = useState([])
+export const useAxios =  (url: string) => {
+    const [response, setResponse] = useState<any>([])
     const [isNetworkError, setIsNetworkError] = useState(false)
     const fetchMatches = async (): Promise<matchesData[]> => {
         try {

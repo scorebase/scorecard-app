@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add moment
+  /usr/local/bin/node /usr/local/bin/yarn add expo-notifications expo-device
 
 PATH: 
   /Users/e18/Library/pnpm:/Users/e18/Library/Application Support/edgedb/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/e18/Library/pnpm:/Users/e18/Library/Application Support/edgedb/bin
@@ -38,6 +38,7 @@ npm manifest:
       "expo": "~47.0.12",
       "expo-cli": "^6.3.1",
       "expo-status-bar": "~1.4.2",
+      "moment": "^2.29.4",
       "phosphor-react": "^1.4.1",
       "prop-types": "^15.8.1",
       "react": "18.1.0",
@@ -7193,6 +7194,11 @@ Lockfile:
     version "1.0.4"
     resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
     integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+  
+  moment@^2.29.4:
+    version "2.29.4"
+    resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+    integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
   
   ms@2.0.0:
     version "2.0.0"
