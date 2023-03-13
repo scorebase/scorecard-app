@@ -1,5 +1,5 @@
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ScreenNavigationHeader from '../../components/common/ScreenNavigationHeader'
 import { Dimensions } from 'react-native';
@@ -23,14 +23,12 @@ const FinalScore = () => {
   let homeScore = route.params.home_score
   let awayScore = route.params.away_score
   let matchId = route.params.match_id
-  const [response, isLoading] = useAxios(`https://scorecard-be.herokuapp.com/match/event/${matchId}`)
-  const goalsEvent = response.filter((event) => event.event_type === 'Goal')
-  const redCardEvent = response.filter((event) => event.event_type === 'Red Card')
-  // const assistEvent = response.filter((event) => event.event_type === 'Assist')
-  // const yellowCardEvent = response.filter((event) => event.event_type === 'Yellow Card')
+  const [newEventResponse, isNewsEventLoading, isNewsEventError] = useAxios(`https://scorecard-be.herokuapp.com/news/${matchId}`)
+  const [matchEventResponse, isLoading] = useAxios(`https://scorecard-be.herokuapp.com/match/event/${matchId}`)
+  const goalsEvent = matchEventResponse.filter((event) => event.event_type === 'Goal')
+  const redCardEvent = matchEventResponse.filter((event) => event.event_type === 'Red Card')
   const homeTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === homeTeam.short_name)
   const awayTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === awayTeam.short_name)
-  console.warn(redCardEvent)
   return (
     <SafeAreaView style={{ height: '100%' }}>
       <View style={{ padding: 20, backgroundColor: 'white', height: windowHeight }}>
@@ -38,40 +36,16 @@ const FinalScore = () => {
           <ScreenNavigationHeader backTo='Home' middleComponent={'FinalScore'} moveTo='Scores' />
         </View>
         <ScoreCard homeTeam={homeTeam} homeTeamScorers={homeTeamScorers} awayTeamScorers={awayTeamScorers} awayTeam={awayTeam} homeScore={homeScore} awayScore={awayScore} header='Full Time' />
-        <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 16 }}>News</Text></View>
+        <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 16 }}>Match Report </Text></View>
         <ScrollView style={{}} showsVerticalScrollIndicator={false}>
-          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
-          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
-          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
-          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
-          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, reprehenderit ratione, porro nihil pariatur aperiam facilis quos enim et neque minima quo odio dolorem consequuntur voluptatem amet ullam quis eveniet!</Text>
+          {isNewsEventLoading && <Text style={{ fontStyle: 'italic' }}>loading match report</Text>}
+          {isNewsEventError && <Text style={{ fontStyle: 'italic' }}>Error loading match report,try again later</Text>}
+          {newEventResponse == null ? <Text style={{ textAlign: 'center', marginTop: 12 }}>No news  currently </Text> : <Text>{newEventResponse.body}</Text>}
         </ScrollView>
       </View>
     </SafeAreaView>
   )
 }
-// const ScoreCard = ({ homeTeam, awayTeam, homeScore, awayScore }) => {
-//   return (
-//     <View style={{ height: 200, width: '100%', marginTop: 20, padding: 12 }}>
-//       <Text style={{ textAlign: 'center', marginVertical: 15, fontWeight: '500' }}>Full Time</Text>
-//       <View style={{ flexDirection: "row", justifyContent: 'space-between', width: '90%', alignSelf: "center", alignItems: 'center' }}>
-//         <View><Image source={{ uri: homeTeam.logo }} style={{ width: 55, height: 55 }} /></View>
-//         <Text style={{ fontSize: 25, fontWeight: '700' }}>{homeScore}{' '} - {' '}{awayScore}</Text>
-//         <View><Image source={{ uri: awayTeam.logo }} style={{ width: 55, height: 55 }} /></View>
-//       </View>
-//       <View style={{ flexDirection: 'row', justifyContent: "space-between", marginTop: 8, width: "90%", alignSelf: "center" }}>
-//         <View>
-//           <Text style={styles.scorer}>Yinka 16"</Text>
-//           <Text style={styles.scorer}>Lekan 45"</Text>
-//         </View>
-//         <View>
-//           <Text style={styles.scorer}>Gbadebo 78"</Text>
-//           <Text style={styles.scorer}>Eekial 80"</Text>
-//         </View>
-//       </View>
-//     </View>
-//   )
-// }
 export default FinalScore
 
 const styles = StyleSheet.create({

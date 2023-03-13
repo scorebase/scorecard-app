@@ -8,10 +8,11 @@ type matchesData = {
     }
 }
 
-export const useAxios =  (url: string) => {
+export const useAxios = (url: string) => {
     const [response, setResponse] = useState<any>([])
     const [isNetworkError, setIsNetworkError] = useState(false)
     const fetchMatches = async (): Promise<matchesData[]> => {
+        console.log('calling ', url)
         try {
             const options = {
                 url: url,
@@ -35,7 +36,7 @@ export const useAxios =  (url: string) => {
             console.log('Error fetching match', error)
         }
     }
-    const { data, isLoading, isSuccess, isError, error } = useQuery<matchesData[], Error>('matches', fetchMatches)
+    const { data, isLoading, isSuccess, isError, error } = useQuery<matchesData[], Error>(url, fetchMatches)
 
     return [response, isNetworkError, isLoading]
 
