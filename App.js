@@ -109,7 +109,6 @@ export default function App() {
 			);
 		};
 	}, []);
-	console.warn("exptoken", expoPushToken);
 	return (
 		<SafeAreaView style={{flex: 1}}>
 			<StatusBar translucent backgroundColor="transparent" />
