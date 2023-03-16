@@ -9,7 +9,8 @@ import MatchCard from '../../components/Matches/MatchCard';
 import { useAxios } from '../../components/hooks/useAxios.';
 
 const MatchesView = () => {
-  const [response, isNetworkError, isLoading] =  useAxios('https://scorecard-be.herokuapp.com/match/all')
+  const [response, isNetworkError, isLoading] = useAxios('https://scorecard-be.herokuapp.com/match/all')
+  console.log('the response is', response)
   let stageName = response[0]?.type
   if (isNetworkError) {
     return (
@@ -48,7 +49,7 @@ const MatchesView = () => {
   return (
     <View style={{ height: '100%', marginTop: 20, padding: 28 }}>
       <Text style={{ fontWeight: '500', fontSize: 17, letterSpacing: 1 }}>Ules Cup Matches </Text>
-
+      {response.length === 0 && <Text style={{ marginTop: 12 }}>No Matches at the moment, check back later</Text>}
       {isLoading ? <View style={{ height: '100%', alignItems: "center", justifyContent: 'center' }}>
         <ActivityIndicator size="large" color="#00ff00" />
       </View> :

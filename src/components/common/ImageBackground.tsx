@@ -12,8 +12,8 @@ const AppBackground = ({ children }) => {
 
 const styles = StyleSheet.create({
     image: {
-        flex: 1,
         resizeMode: 'cover',
+        flex:1
     },
     overlay: {
         flex: 1,
