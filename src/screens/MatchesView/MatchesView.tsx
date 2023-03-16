@@ -55,7 +55,7 @@ const MatchesView = () => {
       </View> :
         <>
           <Text style={{ marginTop: 12 }}>{stageName}</Text>
-          <ScrollView style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
+          <ScrollView contentContainerStyle={{ paddingBottom: 25}} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
             {response.map((match: IMatch) => (<View key={match.id}><MatchCard id={match.id} date_time={match.date_time} home_score={match.home_score} is_complete={match.is_complete} away_score={match.away_score} home_team={match.home_team} away_team={match.away_team} /></View>))}
           </ScrollView>
         </>
