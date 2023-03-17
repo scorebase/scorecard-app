@@ -7,10 +7,17 @@ import { isError, useQuery } from 'react-query';
 import { IMatch } from '../../interface/match-interface';
 import MatchCard from '../../components/Matches/MatchCard';
 import { useAxios } from '../../components/hooks/useAxios.';
+import { useFocusEffect } from '@react-navigation/native';
 
 const MatchesView = () => {
-  const [response, isNetworkError, isLoading] = useAxios('https://scorecard-be.herokuapp.com/match/all')
-  console.log('the response is', response)
+  const [response, isNetworkError, isLoading, refetch] = useAxios('https://scorecard-be.herokuapp.com/match/all')
+  const [matchesResponse, setMatchesResponse] = useState(response)
+  useEffect(() => { setMatchesResponse(response) }, [response])
+  useFocusEffect(
+    React.useCallback(() => {
+      refetch();
+    }, [])
+  );
   let stageName = response[0]?.type
   if (isNetworkError) {
     return (
@@ -49,14 +56,13 @@ const MatchesView = () => {
   return (
     <View style={{ height: '100%', marginTop: 20, padding: 28 }}>
       <Text style={{ fontWeight: '500', fontSize: 17, letterSpacing: 1 }}>Ules Cup Matches </Text>
-      {response.length === 0 && <Text style={{ marginTop: 12 }}>No Matches at the moment, check back later</Text>}
-      {isLoading ? <View style={{ height: '100%', alignItems: "center", justifyContent: 'center' }}>
+      {isLoading || matchesResponse.length === 0 ? <View style={{ height: '100%', alignItems: "center", justifyContent: 'center' }}>
         <ActivityIndicator size="large" color="#00ff00" />
       </View> :
         <>
           <Text style={{ marginTop: 12 }}>{stageName}</Text>
-          <ScrollView contentContainerStyle={{ paddingBottom: 25}} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
-            {response.map((match: IMatch) => (<View key={match.id}><MatchCard id={match.id} date_time={match.date_time} home_score={match.home_score} is_complete={match.is_complete} away_score={match.away_score} home_team={match.home_team} away_team={match.away_team} /></View>))}
+          <ScrollView contentContainerStyle={{ paddingBottom: 25 }} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
+            {matchesResponse.map((match: IMatch) => (<View key={match.id}><MatchCard id={match.id} date_time={match.date_time} home_score={match.home_score} is_complete={match.is_complete} away_score={match.away_score} home_team={match.home_team} away_team={match.away_team} /></View>))}
           </ScrollView>
         </>
       }

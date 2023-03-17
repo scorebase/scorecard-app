@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useQuery } from "react-query"
 
 type matchesData = {
@@ -11,6 +11,7 @@ type matchesData = {
 export const useAxios = (url: string) => {
     const [response, setResponse] = useState<any>([])
     const [isNetworkError, setIsNetworkError] = useState(false)
+    const [isDataFetched, setIsDataFetched] = useState(true)
     const fetchMatches = async (): Promise<matchesData[]> => {
         console.log('calling ', url)
         try {
@@ -18,6 +19,7 @@ export const useAxios = (url: string) => {
                 url: url,
                 method: 'GET',
                 mode: "no-cors",
+                // timeout: 5000,
                 headers: {
                     'Content-Type': 'application/json;charset=UTF-8',
                     'Accept': 'application/json',
@@ -36,9 +38,11 @@ export const useAxios = (url: string) => {
             console.log('Error fetching match', error)
         }
     }
-    const { data, isLoading, isSuccess, isError, error } = useQuery<matchesData[], Error>(url, fetchMatches)
-
-    return [response, isNetworkError, isLoading]
+    const { data, isLoading, isSuccess, isError, error, refetch } = useQuery<matchesData[], Error>(url, fetchMatches)
+    useEffect(() => {
+        setIsDataFetched(false)
+    }, [])
+    return [response, isNetworkError, isLoading, refetch]
 
 }
 
