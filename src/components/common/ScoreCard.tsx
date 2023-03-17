@@ -31,7 +31,7 @@ export const ScoreCard = ({ homeTeam, awayTeam, homeScore, awayScore, header, ho
             </View>
             <View style={{ flexDirection: 'row', justifyContent: "space-between", marginTop: 8, width: "90%", alignSelf: "center" }}>
                 <View style={{ justifyContent: 'center' }}>
-                    {Object.entries(homeTeamScorerMap).map((scorer: unknown) => <Text style={styles.scorer}>{scorer[0]} <View>{FootballIcons(scorer[1])}</View> </Text>)}
+                    {Object.entries(homeTeamScorerMap).map((scorer: any) => <Text key={scorer.id} style={styles.scorer}>{scorer[0]} <View>{FootballIcons(scorer[1])}</View> </Text>)}
                 </View>
                 <View>
                     {awayTeamScorers.map((scorer) => <Text key={scorer.player_id} style={styles.scorer}>{scorer.player.name}</Text>)}
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         paddingBottom: 3,
         fontSize: 15,
         fontWeight: '500',
-        marginBottom:3,
-        justifyContent:'center'
+        marginBottom: 3,
+        justifyContent: 'center'
     }
 })

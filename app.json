@@ -23,7 +23,7 @@
     },
     "android": {
       "package":"com.scorebase.scorecard",
-      "versioncode":2.0,
+      "versionCode":2.0,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
