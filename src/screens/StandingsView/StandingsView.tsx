@@ -49,7 +49,6 @@ const StandingsView = () => {
       </View >
     )
   }
-  // console.log('stndng res', standingsResponse)
   return (
     <View style={{ marginTop: 20, padding: 28 }}>
       <Text style={{ fontWeight: '500', fontSize: 17, letterSpacing: 1 }}>Group Standings </Text>
