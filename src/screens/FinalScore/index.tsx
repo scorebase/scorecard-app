@@ -8,6 +8,7 @@ import { StatusBar } from 'react-native'
 import { IClub } from '../../interface/match-interface';
 import { ScoreCard } from '../../components/common/ScoreCard';
 import { useAxios } from '../../components/hooks/useAxios.';
+import AppBackground from '../../components/common/ImageBackground';
 const window = Dimensions.get('window');
 // StatusBar.setBarStyle('light-content',true)
 const { height: windowHeight } = window;
@@ -30,20 +31,22 @@ const FinalScore = () => {
   const homeTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === homeTeam.short_name)
   const awayTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === awayTeam.short_name)
   return (
-    <SafeAreaView style={{ height: '100%' }}>
-      <View style={{ padding: 20, backgroundColor: 'white', height: windowHeight }}>
-        <View style={{}}>
-          <ScreenNavigationHeader backTo='Home' middleComponent={'FinalScore'} moveTo='Scores' />
+    <AppBackground>
+      <SafeAreaView >
+        <View style={{ padding: 20, height: windowHeight }}>
+          <View style={{}}>
+            <ScreenNavigationHeader backTo='Home' middleComponent={'FinalScore'} moveTo='Scores' />
+          </View>
+          <ScoreCard homeTeam={homeTeam} homeTeamScorers={homeTeamScorers} awayTeamScorers={awayTeamScorers} awayTeam={awayTeam} homeScore={homeScore} awayScore={awayScore} header='Full Time' />
+          <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 16 }}>Match Report </Text></View>
+          <ScrollView style={{}} showsVerticalScrollIndicator={false}>
+            {isNewsEventLoading && <Text style={{ fontStyle: 'italic' }}>loading match report</Text>}
+            {isNewsEventError && <Text style={{ fontStyle: 'italic' }}>Error loading match report,try again later</Text>}
+            {newEventResponse == null ? <Text style={{ textAlign: 'center', marginTop: 12 }}>No news  currently </Text> : <Text>{newEventResponse.body}</Text>}
+          </ScrollView>
         </View>
-        <ScoreCard homeTeam={homeTeam} homeTeamScorers={homeTeamScorers} awayTeamScorers={awayTeamScorers} awayTeam={awayTeam} homeScore={homeScore} awayScore={awayScore} header='Full Time' />
-        <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 16 }}>Match Report </Text></View>
-        <ScrollView style={{}} showsVerticalScrollIndicator={false}>
-          {isNewsEventLoading && <Text style={{ fontStyle: 'italic' }}>loading match report</Text>}
-          {isNewsEventError && <Text style={{ fontStyle: 'italic' }}>Error loading match report,try again later</Text>}
-          {newEventResponse == null ? <Text style={{ textAlign: 'center', marginTop: 12 }}>No news  currently </Text> : <Text>{newEventResponse.body}</Text>}
-        </ScrollView>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView >
+    </AppBackground>
   )
 }
 export default FinalScore
