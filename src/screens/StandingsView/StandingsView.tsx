@@ -4,6 +4,8 @@ import GroupCard from '../../components/Standings/GroupCard';
 import AppBackground from '../../components/common/ImageBackground';
 import { useAxios } from '../../components/hooks/useAxios.';
 import { useFocusEffect } from '@react-navigation/native';
+import Loader from '../../components/common/Loader';
+
 export interface IMembers {
   StandingId: number, TeamId: number, draws: number, goals_conceded: number, goals_scored: number, losses: number, points: number, wins: number
 }

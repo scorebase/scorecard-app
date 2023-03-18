@@ -40,13 +40,15 @@ const MatchCard = ({ home_team, away_team, home_score, away_score, is_complete: 
         <Pressable
             onPress={() => handlePress()}
             style={{
-                width: '98%', backgroundColor: 'white', height: 80, alignItems: 'center', justifyContent: "space-evenly", shadowColor: 'black',
+                width: '98%', backgroundColor: 'white', height: 80, alignItems: 'center', justifyContent: "space-between", shadowColor: 'black',
                 shadowOffset: { width: 0, height: 0 },
                 shadowOpacity: 0.1,
                 shadowRadius: 4,
                 borderRadius: 12,
                 elevation: 3,
                 flexDirection: 'row',
+                paddingLeft: 30,
+                paddingRight: 30,
                 alignSelf: 'center', marginVertical: 16
 
             }}>
