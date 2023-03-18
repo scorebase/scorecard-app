@@ -11,6 +11,7 @@ import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
 import {useEffect, useRef, useState} from "react";
 import {Button, Text} from "react-native";
+import { Provider as PaperProvider } from "react-native-paper";
 
 Notifications.setNotificationHandler({
 	handleNotification: async () => ({
@@ -110,7 +111,8 @@ export default function App() {
 		};
 	}, []);
 	return (
-		<SafeAreaView style={{flex: 1}}>
+		<PaperProvider>
+		<SafeAreaView style={{ flex: 1 }}>
 			<StatusBar translucent backgroundColor="transparent" />
 			<QueryClientProvider client={queryClient}>
 				<NavigationContainer>
@@ -151,6 +153,7 @@ export default function App() {
 					</Stack.Navigator>
 				</NavigationContainer>
 			</QueryClientProvider>
-		</SafeAreaView>
+			</SafeAreaView>
+			</PaperProvider>
 	);
 }
