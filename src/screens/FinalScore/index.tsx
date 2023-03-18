@@ -19,7 +19,6 @@ import Loader from "../../components/common/Loader";
 import AppBackground from "../../components/common/ImageBackground";
 const window = Dimensions.get("window");
 // StatusBar.setBarStyle('light-content',true)
-const { height: windowHeight } = window;
 const FinalScore = () => {
   type RootStackParamList = {
     FinalScore: {
@@ -57,10 +56,10 @@ const FinalScore = () => {
     (goal) => goal.team.short_name === awayTeam.short_name
   );
   return (
-    <SafeAreaView style={{ height: "100%" }}>
       <AppBackground>
+    <SafeAreaView>
       <View
-        style={{ padding: 20, height: windowHeight }}
+        style={{paddingHorizontal: 20}}
       >
         <View style={{}}>
           <ScreenNavigationHeader
@@ -103,8 +102,8 @@ const FinalScore = () => {
           )}
         </ScrollView>
       </View>
-      </AppBackground>
       </SafeAreaView>
+      </AppBackground>
   );
 };
 export default FinalScore;
