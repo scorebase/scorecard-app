@@ -4,6 +4,8 @@ import GroupCard from '../../components/Standings/GroupCard';
 import AppBackground from '../../components/common/ImageBackground';
 import { useAxios } from '../../components/hooks/useAxios.';
 import { useFocusEffect } from '@react-navigation/native';
+import Loader from '../../components/common/Loader';
+
 export interface IMembers {
   StandingId: number, TeamId: number, draws: number, goals_conceded: number, goals_scored: number, losses: number, points: number, wins: number
 }
@@ -49,6 +51,10 @@ const StandingsView = () => {
       </View >
     )
   }
+
+    if (isLoading || standingsResponse.length === 0) {
+      return <Loader full={true} />
+    }
   // console.log('stndng res', standingsResponse)
   return (
     <View style={{ marginTop: 20, padding: 28 }}>
