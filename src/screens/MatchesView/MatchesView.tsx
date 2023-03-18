@@ -8,6 +8,8 @@ import { IMatch } from '../../interface/match-interface';
 import MatchCard from '../../components/Matches/MatchCard';
 import { useAxios } from '../../components/hooks/useAxios.';
 import { useFocusEffect } from '@react-navigation/native';
+import AppBackground from '../../components/common/ImageBackground';
+import Loader from '../../components/common/Loader';
 
 const MatchesView = () => {
   const [response, isNetworkError, isLoading, refetch] = useAxios('https://scorecard-be.herokuapp.com/match/all')
@@ -53,20 +55,20 @@ const MatchesView = () => {
       </View >
     )
   }
+    if (isLoading || matchesResponse.length === 0) {
+      return (
+        <AppBackground>
+          <Loader full={true} />
+        </AppBackground>
+      );
+    }
   return (
     <View style={{ height: '100%', marginTop: 20, padding: 28 }}>
       <Text style={{ fontWeight: '500', fontSize: 17, letterSpacing: 1 }}>Ules Cup Matches </Text>
-      {isLoading || matchesResponse.length === 0 ? <View style={{ height: '100%', alignItems: "center", justifyContent: 'center' }}>
-        <ActivityIndicator size="large" color="#00ff00" />
-      </View> :
-        <>
           <Text style={{ marginTop: 12 }}>{stageName}</Text>
           <ScrollView contentContainerStyle={{ paddingBottom: 25 }} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
             {matchesResponse.map((match: IMatch) => (<View key={match.id}><MatchCard id={match.id} date_time={match.date_time} home_score={match.home_score} is_complete={match.is_complete} away_score={match.away_score} home_team={match.home_team} away_team={match.away_team} /></View>))}
           </ScrollView>
-        </>
-      }
-
     </View >
   )
 }

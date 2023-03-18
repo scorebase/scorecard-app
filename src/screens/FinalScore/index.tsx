@@ -11,25 +11,42 @@ import { useAxios } from '../../components/hooks/useAxios.';
 import AppBackground from '../../components/common/ImageBackground';
 const window = Dimensions.get('window');
 // StatusBar.setBarStyle('light-content',true)
-const { height: windowHeight } = window;
 const FinalScore = () => {
   type RootStackParamList = {
-    FinalScore: { home_team: IClub, away_team: IClub, home_score: number, away_score: number, match_id: number, };
+    FinalScore: {
+      home_team: IClub;
+      away_team: IClub;
+      home_score: number;
+      away_score: number;
+      match_id: number;
+    };
   };
-  type FinalScoreScreenRouteProp = RouteProp<RootStackParamList, 'FinalScore'>;
+  type FinalScoreScreenRouteProp = RouteProp<RootStackParamList, "FinalScore">;
 
-  const route = useRoute<FinalScoreScreenRouteProp>()
-  let homeTeam = route.params.home_team
-  let awayTeam = route.params.away_team
-  let homeScore = route.params.home_score
-  let awayScore = route.params.away_score
-  let matchId = route.params.match_id
-  const [newEventResponse, isNewsEventLoading, isNewsEventError] = useAxios(`https://scorecard-be.herokuapp.com/news/${matchId}`)
-  const [matchEventResponse, isLoading] = useAxios(`https://scorecard-be.herokuapp.com/match/event/${matchId}`)
-  const goalsEvent = matchEventResponse.filter((event) => event.event_type === 'Goal')
-  const redCardEvent = matchEventResponse.filter((event) => event.event_type === 'Red Card')
-  const homeTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === homeTeam.short_name)
-  const awayTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === awayTeam.short_name)
+  const route = useRoute<FinalScoreScreenRouteProp>();
+  let homeTeam = route.params.home_team;
+  let awayTeam = route.params.away_team;
+  let homeScore = route.params.home_score;
+  let awayScore = route.params.away_score;
+  let matchId = route.params.match_id;
+  const [newEventResponse, isNewsEventLoading, isNewsEventError] = useAxios(
+    `https://scorecard-be.herokuapp.com/news/${matchId}`
+  );
+  const [matchEventResponse, isLoading] = useAxios(
+    `https://scorecard-be.herokuapp.com/match/event/${matchId}`
+  );
+  const goalsEvent = matchEventResponse.filter(
+    (event) => event.event_type === "Goal"
+  );
+  const redCardEvent = matchEventResponse.filter(
+    (event) => event.event_type === "Red Card"
+  );
+  const homeTeamScorers = goalsEvent.filter(
+    (goal) => goal.team.short_name === homeTeam.short_name
+  );
+  const awayTeamScorers = goalsEvent.filter(
+    (goal) => goal.team.short_name === awayTeam.short_name
+  );
   return (
     <AppBackground>
       <SafeAreaView >
@@ -55,8 +72,8 @@ const styles = StyleSheet.create({
   scorer: {
     paddingBottom: 3,
     fontSize: 15,
-    fontWeight: '500'
-  }
-})
+    fontWeight: "500",
+  },
+});
 
 //then you can use windowHeight as the height of your view.
