@@ -4,6 +4,7 @@ import GroupCard from '../../components/Standings/GroupCard';
 import AppBackground from '../../components/common/ImageBackground';
 import { useAxios } from '../../components/hooks/useAxios.';
 import { useFocusEffect } from '@react-navigation/native';
+import { ActivityIndicator } from 'react-native-paper';
 export interface IMembers {
   StandingId: number, TeamId: number, draws: number, goals_conceded: number, goals_scored: number, losses: number, points: number, wins: number
 }
@@ -53,9 +54,15 @@ const StandingsView = () => {
   return (
     <View style={{ marginTop: 20, padding: 28 }}>
       <Text style={{ fontWeight: '500', fontSize: 17, letterSpacing: 1 }}>Group Standings </Text>
-      <ScrollView contentContainerStyle={{ paddingBottom: 50 }} showsVerticalScrollIndicator={false}>
-        {standingsResponse.map((group: { title: string, members: IMembers[] }) => <GroupCard group={group.title} groupMembers={group.members} />)}
-      </ScrollView>
+      {isLoading || standingsResponse.length === 0 ? <View style={{ height: '100%', alignItems: "center", justifyContent: 'center' }}>
+        <ActivityIndicator size="large" animating={true} color={'blue'} />
+      </View> :
+        <>
+          <ScrollView contentContainerStyle={{ paddingBottom: 25 }} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
+            {standingsResponse.map((group: { title: string, members: IMembers[] }) => <GroupCard group={group.title} groupMembers={group.members} />)}
+          </ScrollView>
+        </>
+      }
     </View>
   )
 }

@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View, ActivityIndicator } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import SvyLogo from '../../../assets/svg/svy-logo';
 import Match from '../../components/Matches/MatchCard';
@@ -8,6 +8,7 @@ import { IMatch } from '../../interface/match-interface';
 import MatchCard from '../../components/Matches/MatchCard';
 import { useAxios } from '../../components/hooks/useAxios.';
 import { useFocusEffect } from '@react-navigation/native';
+import { ActivityIndicator } from 'react-native-paper';
 
 const MatchesView = () => {
   const [response, isNetworkError, isLoading, refetch] = useAxios('https://scorecard-be.herokuapp.com/match/all')
@@ -57,7 +58,7 @@ const MatchesView = () => {
     <View style={{ height: '100%', marginTop: 20, padding: 28 }}>
       <Text style={{ fontWeight: '500', fontSize: 17, letterSpacing: 1 }}>Ules Cup Matches </Text>
       {isLoading || matchesResponse.length === 0 ? <View style={{ height: '100%', alignItems: "center", justifyContent: 'center' }}>
-        <ActivityIndicator size="large" color="#00ff00" />
+      <ActivityIndicator size="large" animating={true} color={'blue'} />
       </View> :
         <>
           <Text style={{ marginTop: 12 }}>{stageName}</Text>
