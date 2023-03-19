@@ -111,7 +111,7 @@ export default function App() {
 	}, []);
 	return (
 		<SafeAreaView style={{flex: 1}}>
-			<StatusBar translucent backgroundColor="transparent" />
+			<StatusBar translucent backgroundColor="transparent" barStyle={'dark-content'} />
 			<QueryClientProvider client={queryClient}>
 				<NavigationContainer>
 					{/* <Text>Your expo push token: {expoPushToken}</Text>
