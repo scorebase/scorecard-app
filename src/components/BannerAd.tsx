@@ -15,7 +15,6 @@ const BannerAd = () => {
     //         AdMobInterstitial.showAdAsync().catch((e) => console.log(e));
     //     });
     // }
-    useEffect(() => { showInterstitial() }, [])
     React.useEffect(() => {
         setTestDeviceIDAsync("EMULATOR");
     }, []);
