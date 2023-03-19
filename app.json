@@ -19,13 +19,13 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "undefined",
+      "bundleIdentifier": "com.Scorebase.com",
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-9611044919060171/2599887187"
       }
     },
     "android": {
-      "package": "undefined",
+      "package": "com.Scorebase.com",
       "versionCode": 9,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
