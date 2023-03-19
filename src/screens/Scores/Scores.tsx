@@ -36,7 +36,11 @@ const Scores = () => {
   const homeTeamYellowCard = yellowCardEvent.filter((card) => card.team.short_name === homeTeam.short_name)
   const awayTeamYellowCard = yellowCardEvent.filter((card) => card.team.short_name === awayTeam.short_name)
 
-  console.log('the red card event', response)
+  console.log('the yellow card event', yellowCardEvent)
+  console.log('home team yellow card',homeTeamYellowCard)
+  console.log('away team yellow card',awayTeamYellowCard)
+  console.log('home team',homeTeam)
+  console.log('away team',awayTeam)
   return (
     <AppBackground>
       <SafeAreaView >
