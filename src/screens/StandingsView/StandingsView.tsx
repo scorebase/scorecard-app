@@ -58,7 +58,7 @@ const StandingsView = () => {
         <ActivityIndicator size="large" animating={true} color={'blue'} />
       </View> :
         <>
-          <ScrollView contentContainerStyle={{ paddingBottom: 25 }} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
+          <ScrollView contentContainerStyle={{ paddingBottom: 55 }} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
             {standingsResponse.map((group: { title: string, members: IMembers[] }) => <GroupCard group={group.title} groupMembers={group.members} />)}
           </ScrollView>
         </>
