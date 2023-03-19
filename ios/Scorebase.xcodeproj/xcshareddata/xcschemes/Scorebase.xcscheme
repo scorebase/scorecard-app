@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "scorecard.app"
-               BlueprintName = "scorecard"
-               ReferencedContainer = "container:scorecard.xcodeproj">
+               BuildableName = "Scorebase.app"
+               BlueprintName = "Scorebase"
+               ReferencedContainer = "container:Scorebase.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "scorecardTests.xctest"
-               BlueprintName = "scorecardTests"
-               ReferencedContainer = "container:scorecard.xcodeproj">
+               BuildableName = "ScorebaseTests.xctest"
+               BlueprintName = "ScorebaseTests"
+               ReferencedContainer = "container:Scorebase.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "scorecard.app"
-            BlueprintName = "scorecard"
-            ReferencedContainer = "container:scorecard.xcodeproj">
+            BuildableName = "Scorebase.app"
+            BlueprintName = "Scorebase"
+            ReferencedContainer = "container:Scorebase.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "scorecard.app"
-            BlueprintName = "scorecard"
-            ReferencedContainer = "container:scorecard.xcodeproj">
+            BuildableName = "Scorebase.app"
+            BlueprintName = "Scorebase"
+            ReferencedContainer = "container:Scorebase.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

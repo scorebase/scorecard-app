@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "score-card",
-    "slug": "score-card",
-    "version": "1.0.2",
+    "name": "Scorebase",
+    "slug": "Scorebase",
+    "version": "1.0.7",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -19,14 +19,20 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.scorebase.scorecard"
+      "bundleIdentifier": "com.Scorebase.com",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-9611044919060171/2599887187"
+      }
     },
     "android": {
-      "package":"com.scorebase.scorecard",
-      "versionCode":3.0,
+      "package": "com.Scorebase.com",
+      "versionCode": 9,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-9611044919060171~8269401860"
       }
     },
     "web": {
@@ -34,7 +40,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "1e4b8b37-55d7-4b52-81ef-a01665c703d3"
+        "projectId": "c1aa3b36-9cda-4709-b253-c1435496b7c2"
       }
     }
   }

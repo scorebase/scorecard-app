@@ -36,10 +36,14 @@ const Scores = () => {
   const homeTeamYellowCard = yellowCardEvent.filter((card) => card.team.short_name === homeTeam.short_name)
   const awayTeamYellowCard = yellowCardEvent.filter((card) => card.team.short_name === awayTeam.short_name)
 
-  console.log('the red card event', response)
+  console.log('the yellow card event', yellowCardEvent)
+  console.log('home team yellow card', homeTeamYellowCard)
+  console.log('away team yellow card', awayTeamYellowCard)
+  console.log('home team', homeTeam)
+  console.log('away team', awayTeam)
   return (
     <AppBackground>
-      <SafeAreaView >
+      <SafeAreaView>
         <View style={{ paddingTop: 10, paddingHorizontal: 28 }}>
           <ScreenNavigationHeader
             backTo="Home"
@@ -47,7 +51,10 @@ const Scores = () => {
             moveTo="Home"
           />
         </View>
-        <ScoreCard homeTeam={homeTeam} homeTeamScorers={homeTeamScorers} awayTeamScorers={awayTeamScorers} awayTeam={awayTeam} homeScore={homeScore} awayScore={awayScore} header='' />
+        <View style={{ paddingHorizontal: 18}}>
+
+          <ScoreCard homeTeam={homeTeam} homeTeamScorers={homeTeamScorers} awayTeamScorers={awayTeamScorers} awayTeam={awayTeam} homeScore={homeScore} awayScore={awayScore} header='' />
+        </View>
         {/* Statistics */}
         <View style={{ marginTop: 20, padding: 28 }}>
           <Text
