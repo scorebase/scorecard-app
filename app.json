@@ -1,45 +1,47 @@
 {
-	"expo": {
-		"name": "Scorebase",
-		"slug": "Scorebase",
-		"version": "1.0.7",
-		"orientation": "portrait",
-		"icon": "./assets/icon.png",
-		"userInterfaceStyle": "light",
-		"splash": {
-			"image": "./assets/splash.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"updates": {
-			"fallbackToCacheTimeout": 0
-		},
-		"assetBundlePatterns": ["**/*"],
-		"ios": {
-			"supportsTablet": true,
-			"bundleIdentifier": "undefined",
-			"config": {
-				"googleMobileAdsAppId": "ca-app-pub-9611044919060171/2599887187"
-			}
-		},
-		"android": {
-			"package": "undefined",
-			"versionCode": 9.0,
-			"adaptiveIcon": {
-				"foregroundImage": "./assets/adaptive-icon.png",
-				"backgroundColor": "#FFFFFF"
-			},
-			"config": {
-				"googleMobileAdsAppId": "ca-app-pub-9611044919060171~8269401860"
-			}
-		},
-		"web": {
-			"favicon": "./assets/favicon.png"
-		},
-		"extra": {
-			"eas": {
-				"projectId": "1e4b8b37-55d7-4b52-81ef-a01665c703d3"
-			}
-		}
-	}
+  "expo": {
+    "name": "Scorebase",
+    "slug": "Scorebase",
+    "version": "1.0.7",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "undefined",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-9611044919060171/2599887187"
+      }
+    },
+    "android": {
+      "package": "undefined",
+      "versionCode": 9,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-9611044919060171~8269401860"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c1aa3b36-9cda-4709-b253-c1435496b7c2"
+      }
+    }
+  }
 }
