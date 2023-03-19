@@ -2,7 +2,7 @@
   "expo": {
     "name": "Scorebase",
     "slug": "Scorebase",
-    "version": "1.0.7",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -26,7 +26,7 @@
     },
     "android": {
       "package": "com.Scorebase.com",
-      "versionCode": 9,
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
@@ -40,7 +40,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "c1aa3b36-9cda-4709-b253-c1435496b7c2"
+        "projectId": "7efce321-b2f0-4670-aa7f-4c0b6eb13075"
       }
     }
   }

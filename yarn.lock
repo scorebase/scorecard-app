@@ -1433,10 +1433,10 @@
     joi "^17.7.0"
     semver "^7.3.8"
 
-"@expo/eas-json@3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@expo/eas-json/-/eas-json-3.7.0.tgz#2272951175cea53888798fafbe14ad45589f8a2a"
-  integrity sha512-9+K0lDvwHXXjXcn5a8mrNDUXiX5RIIP4UZdLvF8JReNl8tSv21syqCZ6dPXB+1G3KmOfImHn1PaWW4reFEGOdg==
+"@expo/eas-json@3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@expo/eas-json/-/eas-json-3.8.0.tgz#199aca991728ae524f3fc15eb1ce396b436df9f1"
+  integrity sha512-eGUF4WVr/FQPMWCOQSHJYUWxLwDEBBY7p623qdJUzOyD0J84UIE4+x3336UzVIlFowBmC4pxXEcImzQYRZoxyg==
   dependencies:
     "@babel/code-frame" "7.18.6"
     "@expo/eas-build-job" "0.2.106"
@@ -4738,10 +4738,10 @@ duplexer3@^0.1.4:
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.5.tgz#0b5e4d7bad5de8901ea4440624c8e1d20099217e"
   integrity sha512-1A8za6ws41LQgv9HrE/66jyC5yuSjQ3L/KOpFtoBilsAK2iA2wuS5rTt1OCzIvtS2V7nVmedsUU+DGRcjBmOYA==
 
-eas-cli@^3.7.2:
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/eas-cli/-/eas-cli-3.7.2.tgz#dc61a506148b356b21b458967a3fe5fb6de7b696"
-  integrity sha512-S7LKa0mjC6FoWI8/t/ARJj4oi3e+fnZKaWE9iPEXbmeh+t2fZhYHmKm74wKwkJjUhId9zkH5l/ctbx72BrFWbA==
+eas-cli@^3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/eas-cli/-/eas-cli-3.8.1.tgz#1231a5f760b801a43ac8cb7ca591ec45db8b0c0c"
+  integrity sha512-qVC9oEqK1/zQ1rti14cTq+IMNL3naNmsYyUL5tJSmtOJ3PfjfAcVLBhwsta6Nb1nMqkEXrFYQvGb9P7gwWxt9w==
   dependencies:
     "@expo/apple-utils" "1.1.0"
     "@expo/code-signing-certificates" "0.0.5"
@@ -4749,7 +4749,7 @@ eas-cli@^3.7.2:
     "@expo/config-plugins" "5.0.4"
     "@expo/config-types" "47.0.0"
     "@expo/eas-build-job" "0.2.106"
-    "@expo/eas-json" "3.7.0"
+    "@expo/eas-json" "3.8.0"
     "@expo/json-file" "8.2.37"
     "@expo/multipart-body-parser" "1.1.0"
     "@expo/osascript" "2.0.33"

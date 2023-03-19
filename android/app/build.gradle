@@ -145,8 +145,8 @@ android {
         applicationId 'com.scorebase.scorecard'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 9
-        versionName "1.0.7"
+        versionCode 1
+        versionName "1.0.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         if (isNewArchitectureEnabled()) {
@@ -194,7 +194,7 @@ android {
             preReleaseBuild.dependsOn(packageReactNdkReleaseLibs)
 
             // Due to a bug inside AGP, we have to explicitly set a dependency
-            // between configureCMakeDebug* tasks and the preBuild tasks.
+            // between configureCMakeDebug* tasks and the preBuild tasDetected that you do not have keytool installed locally.fks.
             // This can be removed once this is solved: https://issuetracker.google.com/issues/207403732
             configureCMakeRelWithDebInfo.dependsOn(preReleaseBuild)
             configureCMakeDebug.dependsOn(preDebugBuild)
