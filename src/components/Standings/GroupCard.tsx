@@ -50,7 +50,7 @@ const GroupCard = ({ group, groupMembers }) => {
 
   return (
     <View style={{
-      width: '98%', height: '30%', backgroundColor: 'white', alignSelf: 'center', borderRadius: 12, shadowColor: 'black',
+      width: '98%', height: '17%', backgroundColor: 'white', alignSelf: 'center', borderRadius: 12, shadowColor: 'black',
       shadowOffset: { width: 0, height: 0 },
       shadowOpacity: 0.2,
       shadowRadius: 4,
@@ -84,8 +84,8 @@ const GroupCard = ({ group, groupMembers }) => {
 export default GroupCard
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: 'red' },
-  head: { height: 40, backgroundColor: 'white', borderBottomColor: '#ACACAC', borderBottomWidth: 0.5 },
+  container: { flex: 1, paddingTop: 30, backgroundColor: 'red' },
+  head: { height: 40, backgroundColor: 'white', borderBottomColor: '#727272', borderBottomWidth: 0.4 },
   text: { margin: 6 },
   row: { flexDirection: 'row', backgroundColor: 'white', borderBottomColor: '#ACACAC', borderBottomWidth: 0.5, padding: 6 },
   btn: { width: 58, height: 18, backgroundColor: '#78B7BB', borderRadius: 2 },

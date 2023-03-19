@@ -9,6 +9,7 @@ import { IClub } from '../../interface/match-interface';
 import { ScoreCard } from '../../components/common/ScoreCard';
 import { useAxios } from '../../components/hooks/useAxios.';
 import AppBackground from '../../components/common/ImageBackground';
+import MatchReportCard from '../../components/common/MatchReportCard';
 const window = Dimensions.get('window');
 // StatusBar.setBarStyle('light-content',true)
 const { height: windowHeight } = window;
@@ -24,7 +25,7 @@ const FinalScore = () => {
   let homeScore = route.params.home_score
   let awayScore = route.params.away_score
   let matchId = route.params.match_id
-  const [newEventResponse, isNewsEventLoading, isNewsEventError] = useAxios(`https://scorecard-be.herokuapp.com/news/${matchId}`)
+  const [newsEventResponse, isNewsEventLoading, isNewsEventError] = useAxios(`https://scorecard-be.herokuapp.com/news/${matchId}`)
   const [matchEventResponse, isLoading] = useAxios(`https://scorecard-be.herokuapp.com/match/event/${matchId}`)
   const goalsEvent = matchEventResponse.filter((event) => event.event_type === 'Goal')
   const redCardEvent = matchEventResponse.filter((event) => event.event_type === 'Red Card')
@@ -39,10 +40,10 @@ const FinalScore = () => {
           </View>
           <ScoreCard homeTeam={homeTeam} homeTeamScorers={homeTeamScorers} awayTeamScorers={awayTeamScorers} awayTeam={awayTeam} homeScore={homeScore} awayScore={awayScore} header='Full Time' />
           <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 16 }}>Match Report </Text></View>
-          <ScrollView style={{}} showsVerticalScrollIndicator={false}>
+          <ScrollView contentContainerStyle={{paddingBottom:40}} style={{}} showsVerticalScrollIndicator={false}>
             {isNewsEventLoading && <Text style={{ fontStyle: 'italic' }}>loading match report</Text>}
             {isNewsEventError && <Text style={{ fontStyle: 'italic' }}>Error loading match report,try again later</Text>}
-            {newEventResponse == null ? <Text style={{ textAlign: 'center', marginTop: 12 }}>No news  currently </Text> : <Text>{newEventResponse.body}</Text>}
+            {newsEventResponse == null ? <Text style={{ textAlign: 'center', marginTop: 12 }}>No news  currently </Text> : <MatchReportCard newsImage={'https://e0.365dm.com/19/05/2048x1152/skysports-liverpool-goal-origi_4662066.jpg'} newsBody={newsEventResponse.body} newsTitle={newsEventResponse.title} />}
           </ScrollView>
         </View>
       </SafeAreaView>

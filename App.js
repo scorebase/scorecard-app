@@ -11,6 +11,7 @@ import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
 import {useEffect, useRef, useState} from "react";
 import {Button, Text} from "react-native";
+import MatchReport from "./src/screens/MatchReportScreen/MatchReport";
 
 Notifications.setNotificationHandler({
 	handleNotification: async () => ({
@@ -52,7 +53,11 @@ async function registerForPushNotificationsAsync() {
 			alert("Failed to get push token for push notification!");
 			return;
 		}
-		token = (await Notifications.getExpoPushTokenAsync({ projectId: '42844649-1a70-4476-85ac-4613dc56d465' })).data;
+		token = (
+			await Notifications.getExpoPushTokenAsync({
+				projectId: "42844649-1a70-4476-85ac-4613dc56d465",
+			})
+		).data;
 		console.log(token);
 	} else {
 		alert("Must use physical device for Push Notifications");
@@ -111,7 +116,11 @@ export default function App() {
 	}, []);
 	return (
 		<SafeAreaView style={{flex: 1}}>
-			<StatusBar translucent backgroundColor="transparent" barStyle={'dark-content'} />
+			<StatusBar
+				translucent
+				backgroundColor="transparent"
+				barStyle={"dark-content"}
+			/>
 			<QueryClientProvider client={queryClient}>
 				<NavigationContainer>
 					{/* <Text>Your expo push token: {expoPushToken}</Text>
@@ -147,6 +156,10 @@ export default function App() {
 							component={FinalScore}
 						/>
 						<Stack.Screen name="Scores" component={Scores} />
+						<Stack.Screen
+							name="MatchReport"
+							component={MatchReport}
+						/>
 						{/* <StatusBar style="auto" /> */}
 					</Stack.Navigator>
 				</NavigationContainer>
