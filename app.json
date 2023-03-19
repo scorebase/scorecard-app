@@ -1,7 +1,7 @@
 {
 	"expo": {
-		"name": "score-card",
-		"slug": "score-card",
+		"name": "Scorebase",
+		"slug": "Scorebase",
 		"version": "1.0.7",
 		"orientation": "portrait",
 		"icon": "./assets/icon.png",
