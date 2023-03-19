@@ -28,9 +28,9 @@ export const ScoreCard = ({ homeTeam, awayTeam, homeScore, awayScore, header, ho
         )
     }
     return (
-        <View style={{ height: 200, width: '100%', marginTop: 20, padding: 12 }}>
+        <View style={{ height: 200, width: '100%', marginTop: 20,  }}>
             <Text style={{ textAlign: 'center', marginVertical: 15, fontWeight: '500' }}>{header}</Text>
-            <View style={{ flexDirection: "row", justifyContent: 'space-between', width: '90%', alignSelf: "center", alignItems: 'center' }}>
+            <View style={{ flexDirection: "row", justifyContent: 'space-between', width: '100%', alignSelf: "center", alignItems: 'center' }}>
                 <View style={{ alignItems: 'center',}}>
                     <Text style ={{fontWeight:'700',fontSize:20}}>{homeTeam.short_name}</Text>
                     <Image source={{ uri: homeTeam.logo }} style={{ width: 55, height: 55 }} />
@@ -41,7 +41,7 @@ export const ScoreCard = ({ homeTeam, awayTeam, homeScore, awayScore, header, ho
                     <Image source={{ uri: awayTeam.logo }} style={{ width: 55, height: 55 }} />
                 </View>
             </View>
-            <View style={{ flexDirection: 'row', justifyContent: "space-between", marginTop: 8, width: "90%", alignSelf: "center" }}>
+            <View style={{ flexDirection: 'row', justifyContent: "space-between", marginTop: 8, width: "100%", alignSelf: "center" }}>
                 <View style={{ justifyContent: 'center' }}>
                     {Object.entries(homeTeamScorerMap).map((scorer: any) => <Text key={scorer.id} style={styles.scorer}>{scorer[0]} <View>{FootballIcons(scorer[1])}</View> </Text>)}
                 </View>
