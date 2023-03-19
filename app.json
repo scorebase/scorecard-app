@@ -17,13 +17,13 @@
 		"assetBundlePatterns": ["**/*"],
 		"ios": {
 			"supportsTablet": true,
-			"bundleIdentifier": "com.scorebase.scorecard",
+			"bundleIdentifier": "undefined",
 			"config": {
 				"googleMobileAdsAppId": "ca-app-pub-9611044919060171/2599887187"
 			}
 		},
 		"android": {
-			"package": "com.scorebase.scorecard",
+			"package": "undefined",
 			"versionCode": 9.0,
 			"adaptiveIcon": {
 				"foregroundImage": "./assets/adaptive-icon.png",
