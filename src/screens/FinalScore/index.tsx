@@ -31,6 +31,7 @@ const FinalScore = () => {
   const redCardEvent = matchEventResponse.filter((event) => event.event_type === 'Red Card')
   const homeTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === homeTeam.short_name)
   const awayTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === awayTeam.short_name)
+  console.log('news ev res', newsEventResponse)
   return (
     <AppBackground>
       <SafeAreaView style={{ height: '100%' }}>
@@ -40,10 +41,10 @@ const FinalScore = () => {
           </View>
           <ScoreCard homeTeam={homeTeam} homeTeamScorers={homeTeamScorers} awayTeamScorers={awayTeamScorers} awayTeam={awayTeam} homeScore={homeScore} awayScore={awayScore} header='Full Time' />
           <View style={{ justifyContent: "center", alignItems: 'center', marginTop: 12 }}><Text style={{ fontWeight: '600', fontSize: 16 }}>Match Report </Text></View>
-          <ScrollView contentContainerStyle={{paddingBottom:40}} style={{}} showsVerticalScrollIndicator={false}>
+          <ScrollView contentContainerStyle={{ paddingBottom: 40 }} style={{}} showsVerticalScrollIndicator={false}>
             {isNewsEventLoading && <Text style={{ fontStyle: 'italic' }}>loading match report</Text>}
             {isNewsEventError && <Text style={{ fontStyle: 'italic' }}>Error loading match report,try again later</Text>}
-            {newsEventResponse == null ? <Text style={{ textAlign: 'center', marginTop: 12 }}>No news  currently </Text> : <MatchReportCard newsImage={'https://e0.365dm.com/19/05/2048x1152/skysports-liverpool-goal-origi_4662066.jpg'} newsBody={newsEventResponse.body} newsTitle={newsEventResponse.title} />}
+            {newsEventResponse == null ? <Text style={{ textAlign: 'center', marginTop: 12 }}>No news  currently </Text> : <MatchReportCard newsImage={newsEventResponse.image} newsBody={newsEventResponse.body} newsTitle={newsEventResponse.title} />}
           </ScrollView>
         </View>
       </SafeAreaView>

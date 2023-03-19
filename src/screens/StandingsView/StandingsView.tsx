@@ -57,13 +57,22 @@ const StandingsView = () => {
   }
   return (
     <View style={{ marginTop: 20, padding: 28 }}>
-      <Text style={{ fontWeight: '500', fontSize: 17, letterSpacing: 1 }}>Group Standings </Text>
+
       {isLoading || standingsResponse.length === 0 ? <View style={{ height: '100%', alignItems: "center", justifyContent: 'center' }}>
         <ActivityIndicator size="large" animating={true} color={'blue'} />
       </View> :
         <>
           <ScrollView contentContainerStyle={{ paddingBottom: 120 }} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
-            {standingsResponse.map((group: { title: string, members: IMembers[] }) => <GroupCard group={group.title} groupMembers={group.members} />)}
+
+            {standingsResponse.map((group: { title: string, members: IMembers[] }, index) => {
+              return (
+                 <>
+                  {index === 0 && <Text style={{ fontWeight: '500', fontSize: 17, letterSpacing: 1 }}>Group Standings </Text>}
+                  <GroupCard group={group.title} groupMembers={group.members} />
+                </>)
+            }
+
+            )}
             {goalScorers.length !== 0 &&
               <View>
                 <Text style={{ fontWeight: '500', fontSize: 14, marginTop: 18 }}>Goalscorers</Text>
