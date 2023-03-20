@@ -50,7 +50,7 @@ const GroupCard = ({ group, groupMembers }) => {
 
   return (
     <View style={{
-      width: '98%', height: '17%', backgroundColor: 'white', alignSelf: 'center', borderRadius: 12, shadowColor: 'black',
+      width: '98%', height: 220, backgroundColor: 'white', alignSelf: 'center', borderRadius: 12, shadowColor: 'black',
       shadowOffset: { width: 0, height: 0 },
       shadowOpacity: 0.2,
       shadowRadius: 4,

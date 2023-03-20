@@ -22,7 +22,8 @@
       "bundleIdentifier": "com.scoreboard.scorebase",
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-9611044919060171/2599887187"
-      }
+      },
+      "buildNumber":2
     },
     "android": {
       "package": "com.scoreboard.scorebase",

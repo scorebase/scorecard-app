@@ -26,6 +26,12 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId":"scorebasenig@gmail.com",
+        "ascAppId":"6446505087",
+        "appleTeamId":"75QAN2ZFN4"
+      }
+    }
   }
 }

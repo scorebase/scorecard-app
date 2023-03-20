@@ -62,7 +62,7 @@ const StandingsView = () => {
         <ActivityIndicator size="large" animating={true} color={'blue'} />
       </View> :
         <>
-          <ScrollView contentContainerStyle={{ paddingBottom: 120 }} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
+          <ScrollView contentContainerStyle={{ paddingBottom: 40 }} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
 
             {standingsResponse.map((group: { title: string, members: IMembers[] }, index) => {
               return (
@@ -73,7 +73,7 @@ const StandingsView = () => {
             }
 
             )}
-            {goalScorers.length !== 0 &&
+                {goalScorers.length !== 0 &&
               <View>
                 <Text style={{ fontWeight: '500', fontSize: 14, marginTop: 18 }}>Goalscorers</Text>
                 <View style={{
