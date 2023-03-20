@@ -1,4 +1,4 @@
-package com.scorebase.scorecard.newarchitecture;
+package com.scoreboard.scorebase.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -20,9 +20,9 @@ import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.scorebase.scorecard.BuildConfig;
-import com.scorebase.scorecard.newarchitecture.components.MainComponentsRegistry;
-import com.scorebase.scorecard.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.scoreboard.scorebase.BuildConfig;
+import com.scoreboard.scorebase.newarchitecture.components.MainComponentsRegistry;
+import com.scoreboard.scorebase.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

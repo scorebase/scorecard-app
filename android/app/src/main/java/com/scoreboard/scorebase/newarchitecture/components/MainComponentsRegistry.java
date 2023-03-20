@@ -1,4 +1,4 @@
-package com.scorebase.scorecard.newarchitecture.components;
+package com.scoreboard.scorebase.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

@@ -1,4 +1,4 @@
-package com.scorebase.scorecard;
+package com.scoreboard.scorebase;
 
 import android.os.Build;
 import android.os.Bundle;
