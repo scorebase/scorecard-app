@@ -40,8 +40,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "c1aa3b36-9cda-4709-b253-c1435496b7c2"
+        "projectId": "4f3cee59-5b83-4b32-b372-9de045484e05"
       }
-    }
+    },
+    "owner": "jjuggy"
   }
 }

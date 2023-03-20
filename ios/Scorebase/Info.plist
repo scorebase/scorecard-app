@@ -25,7 +25,7 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>com.scorebase.scorecard</string>
+          <string>com.scoreboard.scorebase</string>
         </array>
       </dict>
     </array>
