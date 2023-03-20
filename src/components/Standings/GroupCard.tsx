@@ -40,7 +40,7 @@ const GroupCard = ({ group, groupMembers }) => {
   const qualifiers = sortedGroupMembers[0]
   const bestLossers = sortedGroupMembers[1]
   const lossers = sortedGroupMembers[2]
-  const [tableHead, setTableHead] = useState(['','Club','W','D','L','GD', 'P',])
+  const [tableHead, setTableHead] = useState(['', 'Club', 'W', 'D', 'L', 'GD', 'P',])
   const [tableData, setTableData] = useState([
     [qualificationStatus('#00D1FF'), nameOfTeam(qualifiers.Team?.short_name ?? '--'), noOfWins(qualifiers.wins), noOfDraws(qualifiers.draws), noOfLosses(qualifiers.losses), goalDiff(qualifiers.goals_scored - qualifiers.goals_conceded), noOfPoints(qualifiers.points)],
     [qualificationStatus('#FF9E0D'), nameOfTeam(bestLossers.Team?.short_name ?? '--'), noOfWins(bestLossers.wins), noOfDraws(bestLossers.draws), noOfLosses(bestLossers.losses), goalDiff(bestLossers.goals_scored - bestLossers.goals_conceded), noOfPoints(bestLossers.points)],
@@ -72,11 +72,11 @@ const GroupCard = ({ group, groupMembers }) => {
             </TableWrapper>
           ))
         }
+        <View style={{ flexDirection: 'row', marginTop: 7, alignItems: "center" }}>
+          <View style={{ flexDirection: 'row', alignItems: "center" }}>{qualificationStatus('#00D1FF')}<Text style={{ marginLeft: 8 }}>Qualified</Text></View>
+          <View style={{ flexDirection: 'row', alignItems: "center", marginLeft: 16 }}>{qualificationStatus('#FF9E0D')}<Text style={{ marginLeft: 8 }}>Best Loser</Text></View>
+        </View>
       </Table>
-      <View style={{ flexDirection: 'row', marginTop: 7, }}>
-        <View style={{ flexDirection: 'row', alignItems: "center" }}>{qualificationStatus('#00D1FF')}<Text style={{ marginLeft: 8 }}>Qualified</Text></View>
-        <View style={{ flexDirection: 'row', alignItems: "center", marginLeft: 16 }}>{qualificationStatus('#FF9E0D')}<Text style={{ marginLeft: 8 }}>Best Loser</Text></View>
-      </View>
     </View>
   )
 }
