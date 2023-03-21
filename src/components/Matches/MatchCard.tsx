@@ -63,8 +63,8 @@ const MatchCard = ({ home_team, away_team, home_score, away_score, is_complete: 
                         <Text style={{ textAlign: 'center', fontWeight: "600", marginTop: 5, color: 'green' }}>{matchIsComplete ? <Text style={{ color: 'black' }} >FT</Text> : 'live'}</Text>
                     </View> :
                     <View>
-                        <Text style={{ fontWeight: '300' }}>{dateOfMatch}</Text>
-                        <Text style={{ textAlign: 'center', fontWeight: '300' }}>{timeOfMatch}</Text>
+                        <Text style={{ fontWeight: '300', fontSize: 12 }}>{dateOfMatch}</Text>
+                        <Text style={{ textAlign: 'center', fontWeight: '300', fontSize: 12 }}>{timeOfMatch}</Text>
                     </View>
                 }
             </View>

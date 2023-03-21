@@ -50,7 +50,7 @@ const GroupCard = ({ group, groupMembers }) => {
 
   return (
     <View style={{
-      width: '98%', height: 220, backgroundColor: 'white', alignSelf: 'center', borderRadius: 12, shadowColor: 'black',
+      width: '100%', height: '30%', backgroundColor: 'white', alignSelf: 'center', borderRadius: 12, shadowColor: 'black',
       shadowOffset: { width: 0, height: 0 },
       shadowOpacity: 0.2,
       shadowRadius: 4,
@@ -59,7 +59,7 @@ const GroupCard = ({ group, groupMembers }) => {
       marginTop: 24,
     }}>
       <Text style={{ fontWeight: '500', fontSize: 17, letterSpacing: 1 }}>{group}</Text>
-      <Table borderStyle={{ borderColor: 'transparent' }}>
+      <Table style={{ width: 330 }} borderStyle={{ borderColor: 'transparent' }}>
         <Row data={tableHead} style={styles.head} textStyle={styles.text} />
         {
           tableData.map((rowData, index) => (
@@ -72,11 +72,11 @@ const GroupCard = ({ group, groupMembers }) => {
             </TableWrapper>
           ))
         }
-        <View style={{ flexDirection: 'row', marginTop: 7, alignItems: "center" }}>
-          <View style={{ flexDirection: 'row', alignItems: "center" }}>{qualificationStatus('#00D1FF')}<Text style={{ marginLeft: 8 }}>Qualified</Text></View>
-          <View style={{ flexDirection: 'row', alignItems: "center", marginLeft: 16 }}>{qualificationStatus('#FF9E0D')}<Text style={{ marginLeft: 8 }}>Best Loser</Text></View>
-        </View>
       </Table>
+      <View style={{ flexDirection: 'row', marginTop: 7, alignItems: "center" }}>
+        <View style={{ flexDirection: 'row', alignItems: "center" }}>{qualificationStatus('#00D1FF')}<Text style={{ marginLeft: 8 }}>Qualified</Text></View>
+        <View style={{ flexDirection: 'row', alignItems: "center", marginLeft: 16 }}>{qualificationStatus('#FF9E0D')}<Text style={{ marginLeft: 8 }}>Best Loser</Text></View>
+      </View>
     </View>
   )
 }
