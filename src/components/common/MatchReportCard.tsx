@@ -12,7 +12,6 @@ const MatchReportCard = ({ newsBody, newsTitle, newsImage }) => {
         length: '100',
         separator: ' ',
     });
-
     return (
         <Pressable onPress={() => navigation.navigate('MatchReport', { newsImage: newsImage, newsBody, newsTitle })} style={{ marginTop: 30 }}>
             <Image source={{ uri: newsImage }} style={{ width: '100%', height: 180, borderRadius: 12, }} />

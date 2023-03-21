@@ -36,11 +36,11 @@ const FinalScore = () => {
   const redCardEvent = matchEventResponse.filter((event) => event.event_type === 'Red Card')
   const homeTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === homeTeam.short_name)
   const awayTeamScorers = goalsEvent.filter((goal) => goal.team.short_name === awayTeam.short_name)
-  console.log('news ev res', newsEventResponse)
+  console.warn('news ev res', newsEventResponse)
   return (
     <AppBackground>
       <SafeAreaView style={{ height: '100%' }}>
-        <View style={{ padding: 20, height: windowHeight }}>
+        <View style={{ padding: 20 }}>
           <View style={{}}>
             <ScreenNavigationHeader backTo='Home' middleComponent={'FinalScore'} moveTo='Scores' />
           </View>
@@ -49,7 +49,7 @@ const FinalScore = () => {
           <ScrollView contentContainerStyle={{ paddingBottom: 40 }} style={{}} showsVerticalScrollIndicator={false}>
             {isNewsEventLoading && <Text style={{ fontStyle: 'italic' }}>loading match report</Text>}
             {isNewsEventError && <Text style={{ fontStyle: 'italic' }}>Error loading match report,try again later</Text>}
-            {newsEventResponse == null ? <Text style={{ textAlign: 'center', marginTop: 12 }}>No news  currently </Text> : <MatchReportCard newsImage={newsEventResponse.image} newsBody={newsEventResponse.body} newsTitle={newsEventResponse.title} />}
+            {newsEventResponse == undefined || newsEventResponse.length === 0  ? <Text style={{ textAlign: 'center', marginTop: 12 }}>No news  currently </Text> : <MatchReportCard newsImage={newsEventResponse.image} newsBody={newsEventResponse.body} newsTitle={newsEventResponse.title} />}
           </ScrollView>
         </View>
       </SafeAreaView>

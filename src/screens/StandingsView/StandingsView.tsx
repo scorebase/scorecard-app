@@ -62,7 +62,7 @@ const StandingsView = () => {
         <ActivityIndicator size="large" animating={true} color={'blue'} />
       </View> :
         <>
-          <ScrollView contentContainerStyle={{ paddingBottom: 40 }} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
+          <ScrollView contentContainerStyle={{ paddingBottom: 300 }} style={{ paddingTop: 12 }} showsVerticalScrollIndicator={false}>
 
             {standingsResponse.map((group: { title: string, members: IMembers[] }, index) => {
               return (
